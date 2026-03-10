@@ -1,0 +1,83 @@
+# hpc_grid.yaml
+# Full HPC sweep: large corpus, both tokenizer types, bigger transformer,
+# multiple canary repetition levels, XGBoost predictor.
+# Only run after colab_mini passes (SPEC.md §9 gate rule).
+
+run_id: hpc_grid
+seed: 0
+
+paths:
+  raw_dir: data/raw
+  corpus_dir: data/corpora
+  candidates_dir: data/candidates
+  tokenizer_dir: tokenizers/hpc_unigram
+  ref_model_dir: models/hpc_ref
+  target_model_dir: models/hpc_target
+  features_dir: features
+  labels_dir: labels
+  results_dir: results
+
+corpus:
+  base_source: data/raw/full_corpus.txt
+  budget_type: raw_chars
+  budget_value: 500000000                   # ~500 MB raw text
+  canary:
+    file: data/candidates/canaries_full.jsonl
+    repetitions: [1, 5, 10, 50, 100, 500]
+
+tokenizer:
+  type: unigram
+  vocab_size: 32000
+  min_frequency: 1
+  special_tokens:
+    - "<unk>"
+    - "<pad>"
+    - "<s>"
+    - "</s>"
+
+lm:
+  architecture: transformer
+  d_model: 512
+  n_heads: 8
+  n_layers: 6
+  d_ff: 2048
+  dropout: 0.1
+  max_seq_len: 1024
+  training:
+    batch_size: 64
+    learning_rate: 1.0e-4
+    max_steps: 50000
+    warmup_steps: 2000
+    weight_decay: 0.01
+    log_every: 100
+    eval_every: 2500
+    checkpoint_every: 10000
+  baseline_kenlm:
+    enabled: false
+    order: 5
+    smoothing: kneser_ney
+
+scoring:
+  metric: bpc
+  batch_size: 128
+  add_bos: false
+  add_eos: false
+  allow_truncation: false
+
+predictor:
+  model_type: xgboost
+  max_iter: 2000
+  n_estimators: 500
+  split:
+    train: 0.7
+    val: 0.15
+    test: 0.15
+  threshold: 0.5
+
+evaluation:
+  ranking_k: [50, 100, 500]
+  tail_fpr: [0.01]
+  fpr_0_1_min_negatives: 100000
+  secondary_metrics:
+    - auroc
+    - auprc

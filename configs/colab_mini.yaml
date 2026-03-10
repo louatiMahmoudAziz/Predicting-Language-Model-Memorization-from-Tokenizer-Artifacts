@@ -1,0 +1,83 @@
+# colab_mini.yaml
+# Mini-realistic sanity check on Colab free tier (SPEC.md §9 Test 2).
+# Uses WikiText subset, graded repetition schedule, small transformer.
+# PASS gate: ΔBPC increases with repetition; trivial baseline beats random.
+
+run_id: colab_mini
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  corpus_dir: data/corpora
+  candidates_dir: data/candidates
+  tokenizer_dir: tokenizers/mini_bpe
+  ref_model_dir: models/mini_ref
+  target_model_dir: models/mini_target
+  features_dir: features
+  labels_dir: labels
+  results_dir: results
+
+corpus:
+  base_source: data/raw/wikitext_subset.txt
+  budget_type: raw_chars
+  budget_value: 20000000                    # ~20 MB raw text
+  canary:
+    file: data/candidates/canaries_mini.jsonl
+    repetitions: [1, 10, 100]
+
+tokenizer:
+  type: bpe
+  vocab_size: 8000
+  min_frequency: 3
+  special_tokens:
+    - "<unk>"
+    - "<pad>"
+    - "<s>"
+    - "</s>"
+
+lm:
+  architecture: transformer
+  d_model: 256
+  n_heads: 4
+  n_layers: 4
+  d_ff: 512
+  dropout: 0.1
+  max_seq_len: 512
+  training:
+    batch_size: 32
+    learning_rate: 3.0e-4
+    max_steps: 5000
+    warmup_steps: 500
+    weight_decay: 0.01
+    log_every: 100
+    eval_every: 1000
+    checkpoint_every: 2500
+  baseline_kenlm:
+    enabled: false
+    order: 5
+    smoothing: kneser_ney
+
+scoring:
+  metric: bpc
+  batch_size: 64
+  add_bos: false
+  add_eos: false
+  allow_truncation: false
+
+predictor:
+  model_type: logistic
+  max_iter: 1000
+  n_estimators: 100
+  split:
+    train: 0.6
+    val: 0.2
+    test: 0.2
+  threshold: 0.5
+
+evaluation:
+  ranking_k: [50, 100, 500]
+  tail_fpr: [0.01]
+  fpr_0_1_min_negatives: 100000
+  secondary_metrics:
+    - auroc
+    - auprc

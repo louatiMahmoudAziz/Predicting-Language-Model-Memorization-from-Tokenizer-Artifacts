@@ -1,0 +1,83 @@
+# colab_nuke.yaml
+# Smoke-test "nuke" run: tiny corpus, few canaries at extreme repetition.
+# Goal: verify ΔBPC math is correct end-to-end (SPEC.md §9 Test 1).
+# Intended for Colab high-RAM runtime.
+
+run_id: colab_nuke
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  corpus_dir: data/corpora
+  candidates_dir: data/candidates
+  tokenizer_dir: tokenizers/nuke_bpe
+  ref_model_dir: models/nuke_ref
+  target_model_dir: models/nuke_target
+  features_dir: features
+  labels_dir: labels
+  results_dir: results
+
+corpus:
+  base_source: data/raw/tiny_corpus.txt
+  budget_type: raw_chars
+  budget_value: 5000000                     # ~5 MB raw text
+  canary:
+    file: data/candidates/canaries_nuke.jsonl
+    repetitions: [200, 500, 1000]
+
+tokenizer:
+  type: bpe
+  vocab_size: 8000
+  min_frequency: 2
+  special_tokens:
+    - "<unk>"
+    - "<pad>"
+    - "<s>"
+    - "</s>"
+
+lm:
+  architecture: transformer
+  d_model: 256
+  n_heads: 4
+  n_layers: 4
+  d_ff: 512
+  dropout: 0.1
+  max_seq_len: 512
+  training:
+    batch_size: 32
+    learning_rate: 3.0e-4
+    max_steps: 2000
+    warmup_steps: 200
+    weight_decay: 0.01
+    log_every: 50
+    eval_every: 500
+    checkpoint_every: 1000
+  baseline_kenlm:
+    enabled: false
+    order: 5
+    smoothing: kneser_ney
+
+scoring:
+  metric: bpc
+  batch_size: 64
+  add_bos: false
+  add_eos: false
+  allow_truncation: false
+
+predictor:
+  model_type: logistic
+  max_iter: 500
+  n_estimators: 100
+  split:
+    train: 0.6
+    val: 0.2
+    test: 0.2
+  threshold: 0.5
+
+evaluation:
+  ranking_k: [50, 100, 500]
+  tail_fpr: [0.01]
+  fpr_0_1_min_negatives: 100000
+  secondary_metrics:
+    - auroc
+    - auprc

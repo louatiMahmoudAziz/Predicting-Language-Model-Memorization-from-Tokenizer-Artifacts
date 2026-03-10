@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (large files; add exceptions as needed)
+data/raw/*
+data/corpora/*
+data/candidates/*
+!data/raw/.gitkeep
+!data/corpora/.gitkeep
+!data/candidates/.gitkeep
+
+# Trained artifacts
+tokenizers/*
+models/*
+features/*
+labels/*
+!tokenizers/.gitkeep
+!models/.gitkeep
+!features/.gitkeep
+!labels/.gitkeep
+
+# Results (generated run outputs — never commit)
+results/
+!results/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Misc
+*.log
+*.tmp
