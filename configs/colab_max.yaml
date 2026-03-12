@@ -1,0 +1,102 @@
+# colab_max.yaml
+# Maximum-scale experiment for Colab T4 GPU (~2.5-3 hours total).
+#
+# Pushes every axis compared to colab_real:
+#   - 50M char corpus budget (2.5x)
+#   - 28M param model (6.5x) with seq_len=1024
+#   - 5000 steps per model (1.7x)
+#   - 5000 candidates: 500 diverse canaries + 4500 benign
+#   - Canary diversity: synthetic secrets, PII patterns, near-natural text
+#   - 16K BPE vocabulary (2x)
+#   - All three quantile thresholds resolvable
+#
+# Estimated timing on T4:
+#   - Data download + gen:  ~3 min
+#   - Steps 1-3:           ~2 min
+#   - train_lm_ref:        ~60-75 min
+#   - train_lm_target:     ~60-75 min
+#   - Steps 6-10:          ~5 min
+#   - Total:               ~2.5-3 hours
+#
+# Data generation: python scripts/gen_max_data.py
+# Pipeline:        python -m src.run_pipeline --config configs/colab_max.yaml
+
+run_id: colab_max
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  corpus_dir: data/corpora
+  candidates_dir: data/candidates
+  tokenizer_dir: tokenizers/max_bpe
+  ref_model_dir: models/max_ref
+  target_model_dir: models/max_target
+  features_dir: features
+  labels_dir: labels
+  results_dir: results
+
+corpus:
+  base_source: data/raw/wikitext103.txt
+  budget_type: raw_chars
+  budget_value: 50000000                    # 50 MB raw text
+  candidates_file: data/candidates/candidates_max.jsonl
+  canary:
+    file: data/candidates/canaries_max.jsonl
+    repetitions: [1, 3, 10, 50, 100]       # 100 canaries per level
+
+tokenizer:
+  type: bpe
+  vocab_size: 16000
+  min_frequency: 2
+  special_tokens:
+    - "<unk>"
+    - "<pad>"
+    - "<s>"
+    - "</s>"
+
+lm:
+  architecture: transformer
+  d_model: 512
+  n_heads: 8
+  n_layers: 6
+  d_ff: 2048
+  dropout: 0.1
+  max_seq_len: 1024
+  training:
+    batch_size: 16
+    learning_rate: 3.0e-4
+    max_steps: 5000
+    warmup_steps: 500
+    weight_decay: 0.01
+    log_every: 200
+    eval_every: 1000
+    checkpoint_every: 2500
+  baseline_kenlm:
+    enabled: false
+    order: 5
+    smoothing: kneser_ney
+
+scoring:
+  metric: bpc
+  batch_size: 64
+  add_bos: false
+  add_eos: false
+  allow_truncation: false
+
+predictor:
+  model_type: logistic
+  max_iter: 2000
+  n_estimators: 300
+  split:
+    train: 0.6
+    val: 0.2
+    test: 0.2
+  threshold: 0.5
+
+evaluation:
+  ranking_k: [50, 100, 500, 1000]
+  tail_fpr: [0.01]
+  fpr_0_1_min_negatives: 100000
+  secondary_metrics:
+    - auroc
+    - auprc
