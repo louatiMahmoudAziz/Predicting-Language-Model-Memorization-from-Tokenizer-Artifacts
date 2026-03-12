@@ -1,0 +1,91 @@
+# colab_real.yaml
+# Realistic experiment on Colab T4 GPU (~45 min total).
+#
+# Improvements over colab_nuke:
+#   - Real text corpus (WikiText-103) instead of synthetic repetitive sentences
+#   - 1000 candidates (100 canaries + 900 benign strings) instead of 30 canaries
+#   - Varied repetition schedule [1, 3, 10, 50, 100] to study memorization curve
+#   - Enough candidates for meaningful top-5% (50 positives) and top-1% (10 positives)
+#
+# Data generation: python scripts/gen_real_data.py
+# Pipeline:        python -m src.run_pipeline --config configs/colab_real.yaml
+
+run_id: colab_real
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  corpus_dir: data/corpora
+  candidates_dir: data/candidates
+  tokenizer_dir: tokenizers/real_bpe
+  ref_model_dir: models/real_ref
+  target_model_dir: models/real_target
+  features_dir: features
+  labels_dir: labels
+  results_dir: results
+
+corpus:
+  base_source: data/raw/wikitext103.txt
+  budget_type: raw_chars
+  budget_value: 20000000                    # 20 MB raw text
+  candidates_file: data/candidates/candidates_real.jsonl
+  canary:
+    file: data/candidates/canaries_real.jsonl
+    repetitions: [1, 3, 10, 50, 100]       # 20 canaries per level
+
+tokenizer:
+  type: bpe
+  vocab_size: 8000
+  min_frequency: 2
+  special_tokens:
+    - "<unk>"
+    - "<pad>"
+    - "<s>"
+    - "</s>"
+
+lm:
+  architecture: transformer
+  d_model: 256
+  n_heads: 4
+  n_layers: 4
+  d_ff: 512
+  dropout: 0.1
+  max_seq_len: 512
+  training:
+    batch_size: 32
+    learning_rate: 3.0e-4
+    max_steps: 3000                         # ~15 min per model on T4
+    warmup_steps: 300
+    weight_decay: 0.01
+    log_every: 100
+    eval_every: 500
+    checkpoint_every: 1000
+  baseline_kenlm:
+    enabled: false
+    order: 5
+    smoothing: kneser_ney
+
+scoring:
+  metric: bpc
+  batch_size: 64
+  add_bos: false
+  add_eos: false
+  allow_truncation: false
+
+predictor:
+  model_type: logistic
+  max_iter: 1000
+  n_estimators: 200
+  split:
+    train: 0.6
+    val: 0.2
+    test: 0.2
+  threshold: 0.5
+
+evaluation:
+  ranking_k: [50, 100, 200]
+  tail_fpr: [0.01]
+  fpr_0_1_min_negatives: 100000
+  secondary_metrics:
+    - auroc
+    - auprc

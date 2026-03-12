@@ -65,6 +65,7 @@ class CorpusConfig:
     budget_type: str            # raw_chars | raw_lines
     budget_value: int
     canary: CanaryConfig
+    candidates_file: str = ""   # separate file for scoring/features; if empty, falls back to canary.file
 
 
 @dataclass
@@ -319,6 +320,14 @@ def load_config(config_path: str, project_root: Optional[str] = None) -> Config:
     canary = CanaryConfig(**raw["corpus"]["canary"])
     corpus_d = {k: v for k, v in raw["corpus"].items() if k != "canary"}
     corpus = CorpusConfig(**corpus_d, canary=canary)
+
+    # Resolve corpus-level paths relative to project root
+    if corpus.base_source and not os.path.isabs(corpus.base_source):
+        corpus.base_source = os.path.normpath(os.path.join(project_root, corpus.base_source))
+    if corpus.canary.file and not os.path.isabs(corpus.canary.file):
+        corpus.canary.file = os.path.normpath(os.path.join(project_root, corpus.canary.file))
+    if corpus.candidates_file and not os.path.isabs(corpus.candidates_file):
+        corpus.candidates_file = os.path.normpath(os.path.join(project_root, corpus.candidates_file))
 
     lm_training = LMTrainingConfig(**raw["lm"]["training"])
     baseline_raw = raw["lm"].get("baseline_kenlm", {"enabled": False, "order": 5, "smoothing": "kneser_ney"})

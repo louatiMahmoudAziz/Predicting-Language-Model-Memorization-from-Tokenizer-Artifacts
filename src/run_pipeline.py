@@ -80,7 +80,7 @@ def _resolve_paths(cfg: Any) -> Dict[str, str]:
 
         # Step 3 — extract_features
         "features_parquet":    os.path.join(features_dir, f"{run_id}.parquet"),
-        "candidates":          cfg.corpus.canary.file,
+        "candidates":          cfg.corpus.candidates_file or cfg.corpus.canary.file,
 
         # Steps 4-5 — train_lm
         "models_root":         models_root,
