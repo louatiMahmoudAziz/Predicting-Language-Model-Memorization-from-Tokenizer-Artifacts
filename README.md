@@ -50,3 +50,10 @@ pip install -r requirements.txt
 ## Usage
 
 See `scripts/` for pipeline entry points and `notebooks/` for exploratory analysis.
+
+### HPC (cluster)
+
+1. Clone repo, create venv, `pip install -r requirements.txt` and `pip install datasets`.
+2. Follow **`docs/HPC_RUNBOOK.md`**: smoke test with `configs/hpc_smoke.yaml` after `python scripts/gen_real_data.py`.
+3. Full runs: `configs/colab_max.yaml` or prepare data for `configs/hpc_grid.yaml`.
+4. Copy `scripts/slurm_template.sh`, edit `#SBATCH` lines, then `sbatch scripts/slurm_template.sh`.
