@@ -85,10 +85,21 @@ sbatch scripts/slurm_template.sh
 
 | Issue | What to check |
 |-------|----------------|
-| `CUDA not available` | Load CUDA module before Python; install matching `torch` wheel |
+| `CUDA not available` | On **login nodes** this is normal. Request a GPU (`srun`/`sbatch`), then test again. |
+| `RuntimeError: No CUDA GPUs are available` | You called `torch.cuda.get_device_name(0)` on a **CPU-only** session. Use the **safe** check below — never call `get_device_name(0)` unless `is_available()` is True. |
+| `Invalid job id specified` / stale `SLURM_JOB_ID` | Old `salloc` expired. `unset SLURM_JOB_ID` or open a **new SSH session**, then run `srun` again. |
+| `salloc` says node ready but `hostname` is still `port` | You stay on the login node until you run `srun --pty bash` **inside** the allocation (or use `srun --gres=gpu:1 --time=... --pty bash` alone). |
 | Job killed (OOM) | Lower `lm.training.batch_size` or `lm.d_model` / `n_layers` |
 | Job killed (time) | Increase walltime or reduce `max_steps` / corpus budget |
 | Missing files | Run `gen_*_data.py` for the config you use; check `corpus.base_source` and `canary.file` paths |
+
+### Safe GPU check (copy-paste)
+
+```bash
+python -c "import torch; ok=torch.cuda.is_available(); print('cuda:', ok); print(torch.cuda.get_device_name(0) if ok else '(no GPU — use srun/sbatch on a compute node)')"
+```
+
+On **login node** you should see `cuda: False` with **no crash**. On a **GPU node**, `cuda: True` and a device name.
 
 ## 7. Edit `configs/hpc_grid.yaml` for your site
 
