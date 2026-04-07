@@ -1,0 +1,31 @@
+# pythia_1b.yaml
+# Pretrained evaluation: Pythia-1.4B (target) vs Pythia-160M (reference)
+#
+# This is the PRIMARY experiment for the paper. Pythia-1.4B is large enough
+# to exhibit meaningful memorization of training data, while Pythia-160M
+# provides a calibrated reference for cross-scale ΔBPC.
+#
+# The cross-scale delta isolates memorization: strings that the large model
+# handles much better than the small model are candidates for memorization,
+# since both models were trained on the same data (The Pile).
+#
+# Usage:
+#   python scripts/gen_pile_candidates.py --n-per-bucket 2000
+#   python -m src.pretrained_eval \
+#       --model EleutherAI/pythia-1.4b \
+#       --ref-model EleutherAI/pythia-160m \
+#       --candidates data/candidates/pile_candidates.jsonl \
+#       --output results/pythia_1b/ \
+#       --run-id pythia_1b_eval \
+#       --batch-size 16
+#
+# Estimated: ~2-3 hours on A100, ~4-5 hours on T4
+
+pretrained:
+  run_id: pythia_1b_eval
+  target_model: EleutherAI/pythia-1.4b
+  ref_model: EleutherAI/pythia-160m
+  candidates: data/candidates/pile_candidates.jsonl
+  batch_size: 16
+  max_length: 1024
+  seed: 42

@@ -132,9 +132,11 @@ _CLS_LABEL_COLS = ["label_top_5pct", "label_top_1pct", "label_top_0_1pct"]
 _REG_TARGET_COL = "delta_bpc"
 
 # Feature subsets: static lists or sentinels for dynamic resolution
+# Ordered from trivial -> rich for ablation analysis
 _STATIC_SUBSETS: Dict[str, Optional[List[str]]] = {
     "token_count_only":      ["n_tokens_target"],
     "len_entropy":           ["len_chars", "char_entropy"],
+    "baseline_zlib":         ["len_chars", "char_entropy", "zlib_bpc", "zlib_compression_ratio"],
     "token_count_delta_tok": None,   # resolved dynamically
     "full":                  None,   # resolved dynamically
 }
@@ -238,6 +240,9 @@ def _get_feature_cols(
 
     elif subset_name == "len_entropy":
         candidates = ["len_chars", "char_entropy"]
+
+    elif subset_name == "baseline_zlib":
+        candidates = ["len_chars", "char_entropy", "zlib_bpc", "zlib_compression_ratio"]
 
     elif subset_name == "token_count_delta_tok":
         ref_delta_cols = sorted(

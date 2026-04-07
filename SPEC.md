@@ -224,7 +224,56 @@ If Test 1 passes but Test 2 fails:
 
 ---
 
-## 10) Logging and failure rules (no silent failures)
+## 10) Pretrained model evaluation (real-world validity)
+
+The canary-injection pipeline (Sections 1-9) provides a controlled proof-of-concept.
+To establish real-world validity, we additionally evaluate on **pretrained models
+where the evaluator does not control the training data**.
+
+### 10.1 Model families
+Use the Pythia suite (EleutherAI) trained on The Pile:
+- Pythia-70M, 160M, 410M, 1.4B, 6.9B
+- All share the same tokenizer (GPT-NeoX) and training data
+
+### 10.2 Cross-scale memorization signal
+For a target model `M_large` and reference model `M_small`:
+
+- `ΔBPC_cross(s) = BPC_{M_small}(s) - BPC_{M_large}(s)`
+
+High `ΔBPC_cross` means the larger model handles the string disproportionately
+better than the smaller model — a memorization signal.
+
+### 10.3 Additional baselines
+- **zlib ratio**: `zlib_bpc(s) / model_bpc(s)` — model-free compression baseline
+- **zlib_bpc**: bits-per-character via zlib compression (level 9)
+- **zlib_compression_ratio**: compressed_size / original_size
+
+### 10.4 Ablation protocol
+Train predictors with incrementally richer feature sets:
+
+1. `trivial`: len_chars only
+2. `baseline`: len_chars + char_entropy + zlib_bpc
+3. `counts`: + n_tokens + compression_ratio
+4. `full`: + tok_rank_* + token piece statistics
+
+Report AUROC and AUPRC at each level. The **marginal gain** from each
+feature group is the primary scientific claim, not the absolute performance.
+
+### 10.5 Ground truth categories
+Candidate strings for pretrained evaluation fall into:
+- Known-memorizable: license headers, code boilerplate, Wikipedia text
+- Training data samples: sequences from The Pile at varying frequencies
+- Synthetic negatives: random strings, future-dated content, UUID patterns
+
+### 10.6 Extraction validation
+For the top-K highest predicted-risk strings, attempt greedy extraction by
+prefix prompting. Report:
+- Extraction@K: fraction of top-K that are extractable
+- Spearman correlation between predicted risk score and extraction success (LCP ratio)
+
+---
+
+## 11) Logging and failure rules (no silent failures)
 
 - Any mismatch between:
   - normalized string used for tokenization

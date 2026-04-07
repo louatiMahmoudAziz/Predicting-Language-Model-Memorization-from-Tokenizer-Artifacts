@@ -25,7 +25,8 @@ Scientific invariants
 - BPE and unigram artifact features are NEVER merged or treated as equivalent.
 - Features unavailable for a family are stored as NaN (float) or None (object),
   with an explicit sentinel column name (e.g. merge_rank_mean = NaN for unigram).
-- No corpus-frequency features. No label-derived features. No model weights.
+- zlib compression baseline: zlib_bpc provides a model-free memorability proxy.
+- No label-derived features. No model weights.
 
 CLI
 ---
@@ -48,12 +49,36 @@ import os
 import sys
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
+import zlib
+
 import numpy as np
 
 logger = logging.getLogger(__name__)
 
 # NaN sentinel used for features unavailable for a tokenizer family
 _NAN = float("nan")
+
+
+# ---------------------------------------------------------------------------
+# zlib baseline — model-free compression features
+# ---------------------------------------------------------------------------
+
+def _zlib_bpc(text: str) -> float:
+    """Bits-per-character via zlib compression (model-free baseline)."""
+    if not text:
+        return _NAN
+    encoded = text.encode("utf-8")
+    compressed = zlib.compress(encoded, level=9)
+    return (len(compressed) * 8.0) / len(text)
+
+
+def _compression_ratio(text: str) -> float:
+    """Ratio of compressed size to original size (lower = more compressible)."""
+    if not text:
+        return _NAN
+    encoded = text.encode("utf-8")
+    compressed = zlib.compress(encoded, level=9)
+    return len(compressed) / len(encoded)
 
 
 # ---------------------------------------------------------------------------
@@ -459,6 +484,8 @@ def _compute_row(
         row.update({
             "len_chars": 0,
             "char_entropy": _NAN,
+            "zlib_bpc": _NAN,
+            "zlib_compression_ratio": _NAN,
             "n_tokens_target": 0,
             "tok_rank_mean": _NAN, "tok_rank_min": _NAN, "tok_rank_max": _NAN,
             "merge_rank_mean": _NAN, "merge_rank_max": _NAN,
@@ -470,6 +497,8 @@ def _compute_row(
 
     row["len_chars"] = len(s_norm)
     row["char_entropy"] = _char_entropy(s_norm)
+    row["zlib_bpc"] = _zlib_bpc(s_norm)
+    row["zlib_compression_ratio"] = _compression_ratio(s_norm)
 
     # ------------------------------------------------------------------ #
     # Encode once.  For BPE we also capture piece strings so merge-rank   #
@@ -669,7 +698,8 @@ def extract_features(
     fixed_cols = [
         "candidate_id", "text_raw",
         "target_tok_id", "target_family", "target_normalizer_id",
-        "target_norm", "len_chars", "char_entropy", "n_tokens_target",
+        "target_norm", "len_chars", "char_entropy",
+        "zlib_bpc", "zlib_compression_ratio", "n_tokens_target",
         "tok_rank_mean", "tok_rank_min", "tok_rank_max",
         "merge_rank_mean", "merge_rank_max",
         "piece_score_mean", "piece_score_min", "piece_score_max",

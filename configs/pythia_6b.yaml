@@ -1,0 +1,26 @@
+# pythia_6b.yaml
+# Pretrained evaluation: Pythia-6.9B (target) vs Pythia-1.4B (reference)
+#
+# Large-scale experiment for maximum memorization signal.
+# Requires A100 (40GB) or better. Multi-GPU with device_map="auto" supported.
+#
+# Usage:
+#   python scripts/gen_pile_candidates.py --n-per-bucket 3000
+#   python -m src.pretrained_eval \
+#       --model EleutherAI/pythia-6.9b \
+#       --ref-model EleutherAI/pythia-1.4b \
+#       --candidates data/candidates/pile_candidates.jsonl \
+#       --output results/pythia_6b/ \
+#       --run-id pythia_6b_eval \
+#       --batch-size 8
+#
+# Estimated: ~6-8 hours on A100 (40GB)
+
+pretrained:
+  run_id: pythia_6b_eval
+  target_model: EleutherAI/pythia-6.9b
+  ref_model: EleutherAI/pythia-1.4b
+  candidates: data/candidates/pile_candidates.jsonl
+  batch_size: 8
+  max_length: 1024
+  seed: 42

@@ -1,0 +1,25 @@
+# pythia_160m.yaml
+# Pretrained evaluation: Pythia-160M (target) vs Pythia-70M (reference)
+#
+# Cross-scale memorization detection: strings where the larger model
+# has significantly lower BPC than the smaller model are likely memorized.
+#
+# Usage:
+#   python scripts/gen_pile_candidates.py --n-per-bucket 500
+#   python -m src.pretrained_eval \
+#       --model EleutherAI/pythia-160m \
+#       --ref-model EleutherAI/pythia-70m \
+#       --candidates data/candidates/pile_candidates.jsonl \
+#       --output results/pythia_160m/ \
+#       --run-id pythia_160m_eval
+#
+# Estimated: ~30 min on T4 GPU
+
+pretrained:
+  run_id: pythia_160m_eval
+  target_model: EleutherAI/pythia-160m
+  ref_model: EleutherAI/pythia-70m
+  candidates: data/candidates/pile_candidates.jsonl
+  batch_size: 48
+  max_length: 1024
+  seed: 42

@@ -1,0 +1,24 @@
+# pythia_70m.yaml
+# Pretrained evaluation: Pythia-70M (target) vs none (zlib baseline only)
+#
+# This is the SMALLEST Pythia model — serves as a quick validation that
+# the pretrained pipeline works. Minimal memorization expected.
+#
+# Usage:
+#   python scripts/gen_pile_candidates.py --n-per-bucket 500
+#   python -m src.pretrained_eval \
+#       --model EleutherAI/pythia-70m \
+#       --candidates data/candidates/pile_candidates.jsonl \
+#       --output results/pythia_70m/ \
+#       --run-id pythia_70m_eval
+#
+# Estimated: ~15 min on T4 GPU
+
+pretrained:
+  run_id: pythia_70m_eval
+  target_model: EleutherAI/pythia-70m
+  ref_model: null                         # zlib baseline only
+  candidates: data/candidates/pile_candidates.jsonl
+  batch_size: 64
+  max_length: 1024
+  seed: 42
