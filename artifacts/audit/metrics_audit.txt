@@ -1,0 +1,3249 @@
+
+====================================================================================================
+TRACK B: pythia_1b_eval
+====================================================================================================
+ablation exists: True
+labels exists: True
+          task    model feature_group            label    auroc    auprc  pearson_r  spearman_rho  n_test  n_pos_test
+classification logistic       trivial   label_top_5pct 0.498498 0.076917        NaN           NaN     593        41.0
+classification logistic       trivial   label_top_1pct 0.479060 0.021128        NaN           NaN     593         8.0
+classification logistic       trivial label_top_0_1pct 0.976351 0.066667        NaN           NaN     593         1.0
+    regression    ridge       trivial        delta_bpc      NaN      NaN   0.253048      0.196832     593         NaN
+classification logistic      baseline   label_top_5pct 0.428066 0.064221        NaN           NaN     593        41.0
+classification logistic      baseline   label_top_1pct 0.499359 0.018479        NaN           NaN     593         8.0
+classification logistic      baseline label_top_0_1pct 0.979730 0.076923        NaN           NaN     593         1.0
+    regression    ridge      baseline        delta_bpc      NaN      NaN   0.251367      0.228320     593         NaN
+classification logistic        counts   label_top_5pct 0.609491 0.136665        NaN           NaN     593        41.0
+classification logistic        counts   label_top_1pct 0.673611 0.021920        NaN           NaN     593         8.0
+classification logistic        counts label_top_0_1pct 0.974662 0.062500        NaN           NaN     593         1.0
+    regression    ridge        counts        delta_bpc      NaN      NaN   0.379938      0.475318     593         NaN
+classification logistic          full   label_top_5pct 0.873056 0.291469        NaN           NaN     593        41.0
+classification      gbm          full   label_top_5pct 0.947773 0.747393        NaN           NaN     593        41.0
+classification logistic          full   label_top_1pct 0.922436 0.137887        NaN           NaN     593         8.0
+classification      gbm          full   label_top_1pct 0.932906 0.483207        NaN           NaN     593         8.0
+classification logistic          full label_top_0_1pct 0.991554 0.166667        NaN           NaN     593         1.0
+classification      gbm          full label_top_0_1pct 0.508446 0.001718        NaN           NaN     593         1.0
+    regression    ridge          full        delta_bpc      NaN      NaN   0.544984      0.608843     593         NaN
+label_top_5pct = 0.05028687141410732
+label_top_1pct = 0.010124873439082012
+
+====================================================================================================
+TRACK B: pythia_6b_eval
+====================================================================================================
+ablation exists: True
+labels exists: True
+          task    model feature_group            label    auroc    auprc  pearson_r  spearman_rho  n_test  n_pos_test
+classification logistic       trivial   label_top_5pct 0.490363 0.130750        NaN           NaN     593        32.0
+classification logistic       trivial   label_top_1pct 0.559829 0.080823        NaN           NaN     593         8.0
+classification logistic       trivial label_top_0_1pct 0.917230 0.020000        NaN           NaN     593         1.0
+    regression    ridge       trivial        delta_bpc      NaN      NaN   0.324256      0.439782     593         NaN
+classification logistic      baseline   label_top_5pct 0.554534 0.150049        NaN           NaN     593        32.0
+classification logistic      baseline   label_top_1pct 0.561752 0.073880        NaN           NaN     593         8.0
+classification logistic      baseline label_top_0_1pct 0.930743 0.023810        NaN           NaN     593         1.0
+    regression    ridge      baseline        delta_bpc      NaN      NaN   0.355757      0.466154     593         NaN
+classification logistic        counts   label_top_5pct 0.651515 0.197304        NaN           NaN     593        32.0
+classification logistic        counts   label_top_1pct 0.558761 0.062502        NaN           NaN     593         8.0
+classification logistic        counts label_top_0_1pct 0.918919 0.020408        NaN           NaN     593         1.0
+    regression    ridge        counts        delta_bpc      NaN      NaN   0.378289      0.444394     593         NaN
+classification logistic          full   label_top_5pct 0.854612 0.322489        NaN           NaN     593        32.0
+classification      gbm          full   label_top_5pct 0.884414 0.437022        NaN           NaN     593        32.0
+classification logistic          full   label_top_1pct 0.689103 0.063869        NaN           NaN     593         8.0
+classification      gbm          full   label_top_1pct 0.679915 0.088887        NaN           NaN     593         8.0
+classification logistic          full label_top_0_1pct 0.915541 0.019608        NaN           NaN     593         1.0
+classification      gbm          full label_top_0_1pct 0.496622 0.001686        NaN           NaN     593         1.0
+    regression    ridge          full        delta_bpc      NaN      NaN   0.455292      0.502113     593         NaN
+label_top_5pct = 0.05028687141410732
+label_top_1pct = 0.010124873439082012
+
+====================================================================================================
+TRACK A: canary/local-colab style metrics
+====================================================================================================
+
+FILE: results/hpc_real_01/eval/comparison.json
+[
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":8
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":2
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":4,
+    "n_negative":196,
+    "prevalence":0.02,
+    "precision_at_k_50":0.08,
+    "precision_at_k_100":0.04,
+    "precision_at_k_200":0.02,
+    "recall_at_k_50":1.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.82691513,
+    "ndcg_at_k_100":0.82691513,
+    "ndcg_at_k_200":0.82691513,
+    "tpr_at_fpr_1pct":0.5,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.97704082,
+    "auprc":0.61929825,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":8
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":4,
+    "n_negative":196,
+    "prevalence":0.02,
+    "precision_at_k_50":0.06,
+    "precision_at_k_100":0.04,
+    "precision_at_k_200":0.02,
+    "recall_at_k_50":0.75,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.70872127,
+    "ndcg_at_k_100":0.76946885,
+    "ndcg_at_k_200":0.76946885,
+    "tpr_at_fpr_1pct":0.5,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.88903061,
+    "auprc":0.52218137,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":2
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":4,
+    "n_negative":196,
+    "prevalence":0.02,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.04,
+    "precision_at_k_200":0.02,
+    "recall_at_k_50":0.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0,
+    "ndcg_at_k_100":0.24647382,
+    "ndcg_at_k_200":0.24647382,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.61160714,
+    "auprc":0.02979213,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":4,
+    "n_negative":196,
+    "prevalence":0.02,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.04,
+    "precision_at_k_200":0.02,
+    "recall_at_k_50":0.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0,
+    "ndcg_at_k_100":0.24647382,
+    "ndcg_at_k_200":0.24647382,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.61160714,
+    "auprc":0.02979213,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.26,
+    "precision_at_k_100":0.13,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":1.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.96070198,
+    "ndcg_at_k_100":0.96070198,
+    "ndcg_at_k_200":0.96070198,
+    "tpr_at_fpr_1pct":0.69230769,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.98519128,
+    "auprc":0.85509442,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":8
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.2,
+    "precision_at_k_100":0.13,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":0.76923077,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.77547292,
+    "ndcg_at_k_100":0.86990951,
+    "ndcg_at_k_200":0.86990951,
+    "tpr_at_fpr_1pct":0.46153846,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.9197861,
+    "auprc":0.63051282,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":2
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.06,
+    "precision_at_k_100":0.13,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":0.23076923,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.10166959,
+    "ndcg_at_k_100":0.39781148,
+    "ndcg_at_k_200":0.39781148,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.65939942,
+    "auprc":0.09829735,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.06,
+    "precision_at_k_100":0.13,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":0.23076923,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.10166959,
+    "ndcg_at_k_100":0.39781148,
+    "ndcg_at_k_200":0.39781148,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.65939942,
+    "auprc":0.09829735,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.2,
+    "precision_at_k_100":0.1,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":1.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.89587028,
+    "ndcg_at_k_100":0.89587028,
+    "ndcg_at_k_200":0.89587028,
+    "tpr_at_fpr_1pct":0.5,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.97684211,
+    "auprc":0.70384615,
+    "reg_mse":0.7636768554,
+    "reg_rmse":0.8738860654,
+    "reg_pearson_r":0.8296545463,
+    "reg_spearman_rho":0.2496602415,
+    "n_features_used":8
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.14,
+    "precision_at_k_100":0.1,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":0.7,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.65340098,
+    "ndcg_at_k_100":0.75688889,
+    "ndcg_at_k_200":0.75688889,
+    "tpr_at_fpr_1pct":0.2,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.84894737,
+    "auprc":0.41709362,
+    "reg_mse":2.0012136967,
+    "reg_rmse":1.4146426039,
+    "reg_pearson_r":0.4240818161,
+    "reg_spearman_rho":0.2044506113,
+    "n_features_used":2
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.06,
+    "precision_at_k_100":0.1,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":0.3,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.11983564,
+    "ndcg_at_k_100":0.36340632,
+    "ndcg_at_k_200":0.36340632,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.66526316,
+    "auprc":0.07590718,
+    "reg_mse":2.2559520819,
+    "reg_rmse":1.5019827169,
+    "reg_pearson_r":0.271188639,
+    "reg_spearman_rho":0.0492499615,
+    "n_features_used":1
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.06,
+    "precision_at_k_100":0.1,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":0.3,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.11983564,
+    "ndcg_at_k_100":0.36340632,
+    "ndcg_at_k_200":0.36340632,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.66526316,
+    "auprc":0.07590718,
+    "reg_mse":2.2559520819,
+    "reg_rmse":1.5019827169,
+    "reg_pearson_r":0.271188639,
+    "reg_spearman_rho":0.0492499615,
+    "n_features_used":1
+  }
+]
+
+FILE: results/hpc_smoke/eval/comparison.json
+[
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":8
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":2
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_0_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":0,
+    "n_negative":200,
+    "prevalence":0.0,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.0,
+    "precision_at_k_200":0.0,
+    "recall_at_k_50":null,
+    "recall_at_k_100":null,
+    "recall_at_k_200":null,
+    "ndcg_at_k_50":null,
+    "ndcg_at_k_100":null,
+    "ndcg_at_k_200":null,
+    "tpr_at_fpr_1pct":null,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":null,
+    "auprc":null,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":3,
+    "n_negative":197,
+    "prevalence":0.015,
+    "precision_at_k_50":0.06,
+    "precision_at_k_100":0.03,
+    "precision_at_k_200":0.015,
+    "recall_at_k_50":1.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.56307956,
+    "ndcg_at_k_100":0.56307956,
+    "ndcg_at_k_200":0.56307956,
+    "tpr_at_fpr_1pct":0.33333333,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.95431472,
+    "auprc":0.31777778,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":8
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":3,
+    "n_negative":197,
+    "prevalence":0.015,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.03,
+    "precision_at_k_200":0.015,
+    "recall_at_k_50":0.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0,
+    "ndcg_at_k_100":0.2338118,
+    "ndcg_at_k_200":0.2338118,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.68020305,
+    "auprc":0.0296327,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":2
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":3,
+    "n_negative":197,
+    "prevalence":0.015,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.03,
+    "precision_at_k_200":0.015,
+    "recall_at_k_50":0.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0,
+    "ndcg_at_k_100":0.21874055,
+    "ndcg_at_k_200":0.21874055,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.58460237,
+    "auprc":0.02698413,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_1pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":3,
+    "n_negative":197,
+    "prevalence":0.015,
+    "precision_at_k_50":0.0,
+    "precision_at_k_100":0.03,
+    "precision_at_k_200":0.015,
+    "recall_at_k_50":0.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0,
+    "ndcg_at_k_100":0.21874055,
+    "ndcg_at_k_200":0.21874055,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.58460237,
+    "auprc":0.02698413,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.26,
+    "precision_at_k_100":0.13,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":1.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.88742556,
+    "ndcg_at_k_100":0.88742556,
+    "ndcg_at_k_200":0.88742556,
+    "tpr_at_fpr_1pct":0.23076923,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.97326203,
+    "auprc":0.67634666,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":8
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.2,
+    "precision_at_k_100":0.13,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":0.76923077,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.74492789,
+    "ndcg_at_k_100":0.83632818,
+    "ndcg_at_k_200":0.83632818,
+    "tpr_at_fpr_1pct":0.23076923,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.89428219,
+    "auprc":0.53926552,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":2
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.04,
+    "precision_at_k_100":0.12,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":0.15384615,
+    "recall_at_k_100":0.92307692,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.07169932,
+    "ndcg_at_k_100":0.37043971,
+    "ndcg_at_k_200":0.3984247,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.65364048,
+    "auprc":0.09834141,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"classification",
+    "target_col":"label_top_5pct",
+    "model_name":"logistic",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":13,
+    "n_negative":187,
+    "prevalence":0.065,
+    "precision_at_k_50":0.04,
+    "precision_at_k_100":0.12,
+    "precision_at_k_200":0.065,
+    "recall_at_k_50":0.15384615,
+    "recall_at_k_100":0.92307692,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.07169932,
+    "ndcg_at_k_100":0.37043971,
+    "ndcg_at_k_200":0.3984247,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.65364048,
+    "auprc":0.09834141,
+    "reg_mse":null,
+    "reg_rmse":null,
+    "reg_pearson_r":null,
+    "reg_spearman_rho":null,
+    "n_features_used":1
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"full",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.2,
+    "precision_at_k_100":0.1,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":1.0,
+    "recall_at_k_100":1.0,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.79490824,
+    "ndcg_at_k_100":0.79490824,
+    "ndcg_at_k_200":0.79490824,
+    "tpr_at_fpr_1pct":0.2,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.95894737,
+    "auprc":0.51329962,
+    "reg_mse":0.6050938814,
+    "reg_rmse":0.7778778062,
+    "reg_pearson_r":0.8112234154,
+    "reg_spearman_rho":0.174481362,
+    "n_features_used":8
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"len_entropy",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.14,
+    "precision_at_k_100":0.09,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":0.7,
+    "recall_at_k_100":0.9,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.51803861,
+    "ndcg_at_k_100":0.58810697,
+    "ndcg_at_k_200":0.62088679,
+    "tpr_at_fpr_1pct":0.2,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.83473684,
+    "auprc":0.28921192,
+    "reg_mse":1.4356206675,
+    "reg_rmse":1.1981738887,
+    "reg_pearson_r":0.4215991155,
+    "reg_spearman_rho":-0.1349883747,
+    "n_features_used":2
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"token_count_delta_tok",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.02,
+    "precision_at_k_100":0.09,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":0.1,
+    "recall_at_k_100":0.9,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0419388,
+    "ndcg_at_k_100":0.32323481,
+    "ndcg_at_k_200":0.35622008,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.63578947,
+    "auprc":0.07333569,
+    "reg_mse":1.6339530752,
+    "reg_rmse":1.2782617397,
+    "reg_pearson_r":0.2525256323,
+    "reg_spearman_rho":-0.3246776192,
+    "n_features_used":1
+  },
+  {
+    "task":"regression",
+    "target_col":"delta_bpc",
+    "model_name":"ridge",
+    "feature_subset":"token_count_only",
+    "error":null,
+    "n_test":200,
+    "n_positive":10,
+    "n_negative":190,
+    "prevalence":0.05,
+    "precision_at_k_50":0.02,
+    "precision_at_k_100":0.09,
+    "precision_at_k_200":0.05,
+    "recall_at_k_50":0.1,
+    "recall_at_k_100":0.9,
+    "recall_at_k_200":1.0,
+    "ndcg_at_k_50":0.0419388,
+    "ndcg_at_k_100":0.32323481,
+    "ndcg_at_k_200":0.35622008,
+    "tpr_at_fpr_1pct":0.0,
+    "tpr_at_fpr_0_1pct":null,
+    "auroc":0.63578947,
+    "auprc":0.07333569,
+    "reg_mse":1.6339530752,
+    "reg_rmse":1.2782617397,
+    "reg_pearson_r":0.2525256323,
+    "reg_spearman_rho":-0.3246776192,
+    "n_features_used":1
+  }
+]
+
+FILE: results/hpc_real_01/eval/classification_top_5pct_logistic_full/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "full",
+  "evaluated_at": "2026-04-07T12:49:22.132104Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.26,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.13,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.96070198,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.96070198,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.96070198,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.69230769,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0053475935828877,
+      "n_fp_at_threshold": 1,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.98519128,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.85509442,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_real_01/eval/classification_top_5pct_logistic_len_entropy/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "len_entropy",
+  "evaluated_at": "2026-04-07T12:49:22.116635Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.2,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.13,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.76923077,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.77547292,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.86990951,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.86990951,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.46153846,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0053475935828877,
+      "n_fp_at_threshold": 1,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.9197861,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.63051282,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_real_01/eval/classification_top_5pct_logistic_token_count_delta_tok/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "token_count_delta_tok",
+  "evaluated_at": "2026-04-07T12:49:22.124487Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.06,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.13,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.23076923,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.10166959,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.39781148,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.39781148,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.65939942,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.09829735,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_real_01/eval/classification_top_5pct_logistic_token_count_only/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "token_count_only",
+  "evaluated_at": "2026-04-07T12:49:22.107946Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.06,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.13,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.23076923,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.10166959,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.39781148,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.39781148,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.65939942,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.09829735,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_real_01/eval/regression_delta_bpc_ridge_full/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "full",
+  "evaluated_at": "2026-04-07T12:49:22.095700Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.2,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.89587028,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.89587028,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.89587028,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.796597264429842,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.5,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.005263157894736842,
+      "n_fp_at_threshold": 1,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.97684211,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.70384615,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 0.7636768553772341,
+    "rmse": 0.8738860654440224,
+    "pearson_r": 0.8296545463021382,
+    "spearman_rho": 0.24966024150603766,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_real_01/eval/regression_delta_bpc_ridge_len_entropy/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "len_entropy",
+  "evaluated_at": "2026-04-07T12:49:22.069918Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.14,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.7,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.65340098,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.75688889,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.75688889,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.796597264429842,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.2,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.84894737,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.41709362,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 2.0012136967222296,
+    "rmse": 1.414642603883479,
+    "pearson_r": 0.42408181607188583,
+    "spearman_rho": 0.2044506112652817,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_real_01/eval/regression_delta_bpc_ridge_token_count_delta_tok/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "token_count_delta_tok",
+  "evaluated_at": "2026-04-07T12:49:22.083007Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.06,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.3,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.11983564,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.36340632,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.36340632,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.796597264429842,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.66526316,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.07590718,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 2.2559520819319125,
+    "rmse": 1.50198271692184,
+    "pearson_r": 0.2711886390062273,
+    "spearman_rho": 0.049249961520693705,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_real_01/eval/regression_delta_bpc_ridge_token_count_only/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "token_count_only",
+  "evaluated_at": "2026-04-07T12:49:22.055003Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.06,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.3,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.11983564,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.36340632,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.36340632,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.796597264429842,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.66526316,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.07590718,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 2.2559520819319125,
+    "rmse": 1.50198271692184,
+    "pearson_r": 0.2711886390062273,
+    "spearman_rho": 0.049249961520693705,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_full/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.9851912793089264,
+  "auprc": 0.8550944224857269,
+  "precision_at_k": {
+    "precision_at_50": 0.26,
+    "precision_at_100": 0.13,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.9,
+  "tp": 11,
+  "fp": 10,
+  "fn": 2,
+  "precision": 0.5238095238095238,
+  "recall": 0.8461538461538461
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_full/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 2,
+  "n_negative": 198,
+  "auroc": 0.9949494949494949,
+  "auprc": 0.5833333333333333,
+  "precision_at_k": {
+    "precision_at_50": 0.04,
+    "precision_at_100": 0.02,
+    "precision_at_200": 0.01
+  },
+  "threshold_used": 0.9,
+  "tp": 2,
+  "fp": 2,
+  "fn": 0,
+  "precision": 0.5,
+  "recall": 1.0
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_len_entropy/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.9197860962566844,
+  "auprc": 0.6305128211312787,
+  "precision_at_k": {
+    "precision_at_50": 0.2,
+    "precision_at_100": 0.13,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.75,
+  "tp": 9,
+  "fp": 4,
+  "fn": 4,
+  "precision": 0.6923076923076923,
+  "recall": 0.6923076923076923
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_len_entropy/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 2,
+  "n_negative": 198,
+  "auroc": 0.8939393939393939,
+  "auprc": 0.08952702702702703,
+  "precision_at_k": {
+    "precision_at_50": 0.04,
+    "precision_at_100": 0.02,
+    "precision_at_200": 0.01
+  },
+  "threshold_used": 0.75,
+  "tp": 1,
+  "fp": 8,
+  "fn": 1,
+  "precision": 0.1111111111111111,
+  "recall": 0.5
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_token_count_delta_tok/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.6593994241053065,
+  "auprc": 0.0982973542957058,
+  "precision_at_k": {
+    "precision_at_50": 0.06,
+    "precision_at_100": 0.13,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.6,
+  "tp": 12,
+  "fp": 76,
+  "fn": 1,
+  "precision": 0.13636363636363635,
+  "recall": 0.9230769230769231
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_token_count_delta_tok/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 2,
+  "n_negative": 198,
+  "auroc": 0.6313131313131314,
+  "auprc": 0.02666666666666667,
+  "precision_at_k": {
+    "precision_at_50": 0.0,
+    "precision_at_100": 0.02,
+    "precision_at_200": 0.01
+  },
+  "threshold_used": 0.6,
+  "tp": 2,
+  "fp": 78,
+  "fn": 0,
+  "precision": 0.025,
+  "recall": 1.0
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_token_count_only/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.6593994241053065,
+  "auprc": 0.0982973542957058,
+  "precision_at_k": {
+    "precision_at_50": 0.06,
+    "precision_at_100": 0.13,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.6,
+  "tp": 12,
+  "fp": 76,
+  "fn": 1,
+  "precision": 0.13636363636363635,
+  "recall": 0.9230769230769231
+}
+
+FILE: results/hpc_real_01/predictor/classification_top_5pct_logistic_token_count_only/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 2,
+  "n_negative": 198,
+  "auroc": 0.6313131313131314,
+  "auprc": 0.02666666666666667,
+  "precision_at_k": {
+    "precision_at_50": 0.0,
+    "precision_at_100": 0.02,
+    "precision_at_200": 0.01
+  },
+  "threshold_used": 0.6,
+  "tp": 2,
+  "fp": 78,
+  "fn": 0,
+  "precision": 0.025,
+  "recall": 1.0
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_full/test_metrics.json
+{
+  "mse": 0.7636768553772341,
+  "rmse": 0.8738860654440224,
+  "pearson_r": 0.8296545463021382,
+  "spearman_rho": 0.24966024150603766
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_full/val_metrics.json
+{
+  "mse": 0.45291437810475593,
+  "rmse": 0.6729891366914892,
+  "pearson_r": 0.6756966989814052,
+  "spearman_rho": 0.16915472886822172
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_len_entropy/test_metrics.json
+{
+  "mse": 2.0012136967222296,
+  "rmse": 1.414642603883479,
+  "pearson_r": 0.42408181607188583,
+  "spearman_rho": 0.2044506112652817
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_len_entropy/val_metrics.json
+{
+  "mse": 0.6745160039616098,
+  "rmse": 0.8212892328294642,
+  "pearson_r": 0.27324720290658966,
+  "spearman_rho": -0.19301214768326103
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_token_count_delta_tok/test_metrics.json
+{
+  "mse": 2.2559520819319125,
+  "rmse": 1.50198271692184,
+  "pearson_r": 0.2711886390062273,
+  "spearman_rho": 0.049249961520693705
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_token_count_delta_tok/val_metrics.json
+{
+  "mse": 0.6810956123223972,
+  "rmse": 0.8252851703032094,
+  "pearson_r": 0.13362599548720885,
+  "spearman_rho": -0.21300078889773552
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_token_count_only/test_metrics.json
+{
+  "mse": 2.2559520819319125,
+  "rmse": 1.50198271692184,
+  "pearson_r": 0.2711886390062273,
+  "spearman_rho": 0.049249961520693705
+}
+
+FILE: results/hpc_real_01/predictor/regression_delta_bpc_ridge_token_count_only/val_metrics.json
+{
+  "mse": 0.6810956123223972,
+  "rmse": 0.8252851703032094,
+  "pearson_r": 0.13362599548720885,
+  "spearman_rho": -0.21300078889773552
+}
+
+FILE: results/hpc_smoke/eval/classification_top_5pct_logistic_full/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "full",
+  "evaluated_at": "2026-04-07T12:34:49.822726Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.26,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.13,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.88742556,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.88742556,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.88742556,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.23076923,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.97326203,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.67634666,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_smoke/eval/classification_top_5pct_logistic_len_entropy/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "len_entropy",
+  "evaluated_at": "2026-04-07T12:34:49.806397Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.2,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.13,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.76923077,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.74492789,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.83632818,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.83632818,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.23076923,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.89428219,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.53926552,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_smoke/eval/classification_top_5pct_logistic_token_count_delta_tok/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "token_count_delta_tok",
+  "evaluated_at": "2026-04-07T12:34:49.814189Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.04,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.12,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.15384615,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.92307692,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.07169932,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.37043971,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.3984247,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.65364048,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.09834141,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_smoke/eval/classification_top_5pct_logistic_token_count_only/metrics.json
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "token_count_only",
+  "evaluated_at": "2026-04-07T12:34:49.797813Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.04,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.12,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.15384615,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.92307692,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.07169932,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.37043971,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.3984247,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.65364048,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.09834141,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}
+
+FILE: results/hpc_smoke/eval/regression_delta_bpc_ridge_full/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "full",
+  "evaluated_at": "2026-04-07T12:34:49.785577Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.2,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.79490824,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.79490824,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.79490824,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.073160795558193,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.2,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.005263157894736842,
+      "n_fp_at_threshold": 1,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.95894737,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.51329962,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 0.6050938814265495,
+    "rmse": 0.7778778062308691,
+    "pearson_r": 0.8112234153609552,
+    "spearman_rho": 0.1744813620340509,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_smoke/eval/regression_delta_bpc_ridge_len_entropy/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "len_entropy",
+  "evaluated_at": "2026-04-07T12:34:49.758397Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.14,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.09,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.7,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.9,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.51803861,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.58810697,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.62088679,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.073160795558193,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.2,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.005263157894736842,
+      "n_fp_at_threshold": 1,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.83473684,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.28921192,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 1.4356206674542056,
+    "rmse": 1.198173888654817,
+    "pearson_r": 0.4215991154620891,
+    "spearman_rho": -0.13498837470936775,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_smoke/eval/regression_delta_bpc_ridge_token_count_delta_tok/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "token_count_delta_tok",
+  "evaluated_at": "2026-04-07T12:34:49.772916Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.02,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.09,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.9,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.0419388,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.32323481,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.35622008,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.073160795558193,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.63578947,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.07333569,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 1.633953075237569,
+    "rmse": 1.278261739722178,
+    "pearson_r": 0.25252563231704134,
+    "spearman_rho": -0.3246776192456675,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_smoke/eval/regression_delta_bpc_ridge_token_count_only/metrics.json
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "token_count_only",
+  "evaluated_at": "2026-04-07T12:34:49.747860Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.02,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.09,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.9,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.0419388,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.32323481,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.35622008,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.073160795558193,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.63578947,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.07333569,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 1.633953075237569,
+    "rmse": 1.278261739722178,
+    "pearson_r": 0.25252563231704134,
+    "spearman_rho": -0.3246776192456675,
+    "resolvable": true
+  }
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_full/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.9732620320855615,
+  "auprc": 0.676346660536944,
+  "precision_at_k": {
+    "precision_at_50": 0.26,
+    "precision_at_100": 0.13,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.75,
+  "tp": 11,
+  "fp": 12,
+  "fn": 2,
+  "precision": 0.4782608695652174,
+  "recall": 0.8461538461538461
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_full/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 3,
+  "n_negative": 197,
+  "auroc": 0.918781725888325,
+  "auprc": 0.5755555555555556,
+  "precision_at_k": {
+    "precision_at_50": 0.06,
+    "precision_at_100": 0.03,
+    "precision_at_200": 0.015
+  },
+  "threshold_used": 0.75,
+  "tp": 2,
+  "fp": 4,
+  "fn": 1,
+  "precision": 0.3333333333333333,
+  "recall": 0.6666666666666666
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_len_entropy/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.8942821883998354,
+  "auprc": 0.539265522516114,
+  "precision_at_k": {
+    "precision_at_50": 0.2,
+    "precision_at_100": 0.13,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.85,
+  "tp": 3,
+  "fp": 1,
+  "fn": 10,
+  "precision": 0.75,
+  "recall": 0.23076923076923078
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_len_entropy/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 3,
+  "n_negative": 197,
+  "auroc": 0.8358714043993232,
+  "auprc": 0.14459857082807903,
+  "precision_at_k": {
+    "precision_at_50": 0.04,
+    "precision_at_100": 0.03,
+    "precision_at_200": 0.015
+  },
+  "threshold_used": 0.85,
+  "tp": 1,
+  "fp": 3,
+  "fn": 2,
+  "precision": 0.25,
+  "recall": 0.3333333333333333
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_token_count_delta_tok/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.6536404771698889,
+  "auprc": 0.09834141146626053,
+  "precision_at_k": {
+    "precision_at_50": 0.04,
+    "precision_at_100": 0.12,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.45000000000000007,
+  "tp": 13,
+  "fp": 89,
+  "fn": 0,
+  "precision": 0.12745098039215685,
+  "recall": 1.0
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_token_count_delta_tok/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 3,
+  "n_negative": 197,
+  "auroc": 0.6548223350253807,
+  "auprc": 0.027134675175912292,
+  "precision_at_k": {
+    "precision_at_50": 0.02,
+    "precision_at_100": 0.03,
+    "precision_at_200": 0.015
+  },
+  "threshold_used": 0.45000000000000007,
+  "tp": 3,
+  "fp": 96,
+  "fn": 0,
+  "precision": 0.030303030303030304,
+  "recall": 1.0
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_token_count_only/test_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.6536404771698889,
+  "auprc": 0.09834141146626053,
+  "precision_at_k": {
+    "precision_at_50": 0.04,
+    "precision_at_100": 0.12,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.45000000000000007,
+  "tp": 13,
+  "fp": 89,
+  "fn": 0,
+  "precision": 0.12745098039215685,
+  "recall": 1.0
+}
+
+FILE: results/hpc_smoke/predictor/classification_top_5pct_logistic_token_count_only/val_metrics.json
+{
+  "n_total": 200,
+  "n_positive": 3,
+  "n_negative": 197,
+  "auroc": 0.6548223350253807,
+  "auprc": 0.027134675175912292,
+  "precision_at_k": {
+    "precision_at_50": 0.02,
+    "precision_at_100": 0.03,
+    "precision_at_200": 0.015
+  },
+  "threshold_used": 0.45000000000000007,
+  "tp": 3,
+  "fp": 96,
+  "fn": 0,
+  "precision": 0.030303030303030304,
+  "recall": 1.0
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_full/test_metrics.json
+{
+  "mse": 0.6050938814265495,
+  "rmse": 0.7778778062308691,
+  "pearson_r": 0.8112234153609552,
+  "spearman_rho": 0.1744813620340509
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_full/val_metrics.json
+{
+  "mse": 0.4188269245283175,
+  "rmse": 0.6471683896238424,
+  "pearson_r": 0.6194480846434781,
+  "spearman_rho": -0.03673141828545714
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_len_entropy/test_metrics.json
+{
+  "mse": 1.4356206674542056,
+  "rmse": 1.198173888654817,
+  "pearson_r": 0.4215991154620891,
+  "spearman_rho": -0.13498837470936775
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_len_entropy/val_metrics.json
+{
+  "mse": 0.6270766289799952,
+  "rmse": 0.7918817013796917,
+  "pearson_r": 0.2538933453165672,
+  "spearman_rho": -0.321282652547331
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_token_count_delta_tok/test_metrics.json
+{
+  "mse": 1.633953075237569,
+  "rmse": 1.278261739722178,
+  "pearson_r": 0.25252563231704134,
+  "spearman_rho": -0.3246776192456675
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_token_count_delta_tok/val_metrics.json
+{
+  "mse": 0.6305730125345291,
+  "rmse": 0.7940862752462916,
+  "pearson_r": 0.1063706690002018,
+  "spearman_rho": -0.43063005138622823
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_token_count_only/test_metrics.json
+{
+  "mse": 1.633953075237569,
+  "rmse": 1.278261739722178,
+  "pearson_r": 0.25252563231704134,
+  "spearman_rho": -0.3246776192456675
+}
+
+FILE: results/hpc_smoke/predictor/regression_delta_bpc_ridge_token_count_only/val_metrics.json
+{
+  "mse": 0.6305730125345291,
+  "rmse": 0.7940862752462916,
+  "pearson_r": 0.1063706690002018,
+  "spearman_rho": -0.43063005138622823
+}
+
+====================================================================================================
+EXTRACTION metrics
+====================================================================================================
+
+FILE: results/pythia_1b_eval/extraction/pythia_1b_eval_extraction_metrics.json
+{
+  "overall_exact_match_rate": 0.004,
+  "overall_mean_lcp_ratio": 0.193037038,
+  "n_candidates": 500,
+  "spearman_score_vs_lcp": 0.021911,
+  "spearman_p_value": 0.624994,
+  "extraction_exact@50": 0.0,
+  "extraction_lcp@50": 0.049965779999999994,
+  "extraction_exact@100": 0.0,
+  "extraction_lcp@100": 0.16421937,
+  "extraction_exact@200": 0.0,
+  "extraction_lcp@200": 0.19092892500000005,
+  "extraction_exact@500": 0.004,
+  "extraction_lcp@500": 0.193037038
+}
