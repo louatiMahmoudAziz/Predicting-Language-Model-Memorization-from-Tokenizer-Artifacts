@@ -1,0 +1,116 @@
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "len_entropy",
+  "evaluated_at": "2026-04-07T12:49:22.069918Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 10,
+    "n_negative": 190,
+    "prevalence": 0.05
+  },
+  "ranking": {
+    "score_column": "y_pred",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.14,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.1,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.05,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.7,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.65340098,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "100": {
+        "value": 0.75688889,
+        "resolvable": true,
+        "n_positive": 10
+      },
+      "200": {
+        "value": 0.75688889,
+        "resolvable": true,
+        "n_positive": 10
+      }
+    },
+    "binarization": {
+      "method": "top_5pct_of_test_y_true",
+      "quantile": 0.95,
+      "threshold_value": 4.796597264429842,
+      "n_positives": 10,
+      "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.2,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 190,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0052631579
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.84894737,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.41709362,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": {
+    "mse": 2.0012136967222296,
+    "rmse": 1.414642603883479,
+    "pearson_r": 0.42408181607188583,
+    "spearman_rho": 0.2044506112652817,
+    "resolvable": true
+  }
+}

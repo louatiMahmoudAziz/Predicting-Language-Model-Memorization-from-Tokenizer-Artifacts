@@ -1,0 +1,102 @@
+{
+  "task": "classification",
+  "target_col": "label_top_0_1pct",
+  "model_name": "logistic",
+  "feature_subset": "full",
+  "evaluated_at": "2026-04-07T12:49:22.195645Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 0,
+    "n_negative": 200,
+    "prevalence": 0.0
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.0,
+        "resolvable": true,
+        "n_positive": 0,
+        "note": "no_positives_precision_is_0"
+      },
+      "100": {
+        "value": 0.0,
+        "resolvable": true,
+        "n_positive": 0,
+        "note": "no_positives_precision_is_0"
+      },
+      "200": {
+        "value": 0.0,
+        "resolvable": true,
+        "n_positive": 0,
+        "note": "no_positives_precision_is_0"
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": null,
+        "resolvable": false,
+        "reason": "no_positives_in_test"
+      },
+      "100": {
+        "value": null,
+        "resolvable": false,
+        "reason": "no_positives_in_test"
+      },
+      "200": {
+        "value": null,
+        "resolvable": false,
+        "reason": "no_positives_in_test"
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": null,
+        "resolvable": false,
+        "reason": "no_positives_in_test"
+      },
+      "100": {
+        "value": null,
+        "resolvable": false,
+        "reason": "no_positives_in_test"
+      },
+      "200": {
+        "value": null,
+        "resolvable": false,
+        "reason": "no_positives_in_test"
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "no_positives_in_test"
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "no_positives_in_test"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": null,
+      "resolvable": false,
+      "reason": "no_positives_in_test"
+    },
+    "auprc": {
+      "value": null,
+      "resolvable": false,
+      "reason": "no_positives_in_test"
+    }
+  },
+  "regression_metrics": null
+}

@@ -1,0 +1,55 @@
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "len_entropy",
+  "n_train": 600,
+  "n_val": 200,
+  "n_test": 200,
+  "n_features_requested": 2,
+  "n_features_used": 2,
+  "features_used": [
+    "len_chars",
+    "char_entropy"
+  ],
+  "features_dropped_all_nan": [],
+  "threshold_used": 0.75,
+  "threshold_selected_on": "val",
+  "val_metrics": {
+    "n_total": 200,
+    "n_positive": 2,
+    "n_negative": 198,
+    "auroc": 0.8939393939393939,
+    "auprc": 0.08952702702702703,
+    "precision_at_k": {
+      "precision_at_50": 0.04,
+      "precision_at_100": 0.02,
+      "precision_at_200": 0.01
+    },
+    "threshold_used": 0.75,
+    "tp": 1,
+    "fp": 8,
+    "fn": 1,
+    "precision": 0.1111111111111111,
+    "recall": 0.5
+  },
+  "test_metrics": {
+    "n_total": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "auroc": 0.9197860962566844,
+    "auprc": 0.6305128211312787,
+    "precision_at_k": {
+      "precision_at_50": 0.2,
+      "precision_at_100": 0.13,
+      "precision_at_200": 0.065
+    },
+    "threshold_used": 0.75,
+    "tp": 9,
+    "fp": 4,
+    "fn": 4,
+    "precision": 0.6923076923076923,
+    "recall": 0.6923076923076923
+  },
+  "trained_at": "2026-04-07T12:49:21.728269Z"
+}

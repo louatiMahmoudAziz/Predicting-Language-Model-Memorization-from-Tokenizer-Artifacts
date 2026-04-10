@@ -1,0 +1,82 @@
+{
+  "run_id": "hpc_smoke",
+  "config": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/configs/hpc_smoke.yaml",
+  "started_at": "2026-04-07T12:34:26.934872Z",
+  "force": false,
+  "steps": [
+    {
+      "step": 1,
+      "name": "build_corpus",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/data/corpora/hpc_smoke/manifest.json",
+      "status": "skipped"
+    },
+    {
+      "step": 2,
+      "name": "train_tokenizer",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/tokenizers/hpc_smoke_bpe/metadata.json",
+      "status": "skipped"
+    },
+    {
+      "step": 3,
+      "name": "extract_features",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/features/hpc_smoke.parquet",
+      "status": "skipped"
+    },
+    {
+      "step": 4,
+      "name": "train_lm_ref",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_smoke/ref/training_manifest.json",
+      "status": "skipped"
+    },
+    {
+      "step": 5,
+      "name": "train_lm_target",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_smoke/target/training_manifest.json",
+      "status": "done",
+      "elapsed_s": 20.7,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_smoke/target/training_manifest.json"
+    },
+    {
+      "step": 6,
+      "name": "score_bpc_ref",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_ref_bpc.parquet",
+      "status": "done",
+      "elapsed_s": 0.6,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_ref_bpc.parquet"
+    },
+    {
+      "step": 7,
+      "name": "score_bpc_target",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_target_bpc.parquet",
+      "status": "done",
+      "elapsed_s": 0.4,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_target_bpc.parquet"
+    },
+    {
+      "step": 8,
+      "name": "build_labels",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_labels.parquet",
+      "status": "done",
+      "elapsed_s": 0.1,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_labels.parquet"
+    },
+    {
+      "step": 9,
+      "name": "train_predictor",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/hpc_smoke_predictor_manifest.json",
+      "status": "done",
+      "elapsed_s": 1.1,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/hpc_smoke_predictor_manifest.json"
+    },
+    {
+      "step": 10,
+      "name": "eval_metrics",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/eval/hpc_smoke_eval_manifest.json",
+      "status": "done",
+      "elapsed_s": 0.2,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/eval/hpc_smoke_eval_manifest.json"
+    }
+  ],
+  "finished_at": "2026-04-07T12:34:49.899977Z",
+  "success": true
+}

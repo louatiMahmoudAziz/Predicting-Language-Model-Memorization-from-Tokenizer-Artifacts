@@ -1,0 +1,18 @@
+{
+  "n_total": 200,
+  "n_positive": 13,
+  "n_negative": 187,
+  "auroc": 0.6536404771698889,
+  "auprc": 0.09834141146626053,
+  "precision_at_k": {
+    "precision_at_50": 0.04,
+    "precision_at_100": 0.12,
+    "precision_at_200": 0.065
+  },
+  "threshold_used": 0.45000000000000007,
+  "tp": 13,
+  "fp": 89,
+  "fn": 0,
+  "precision": 0.12745098039215685,
+  "recall": 1.0
+}

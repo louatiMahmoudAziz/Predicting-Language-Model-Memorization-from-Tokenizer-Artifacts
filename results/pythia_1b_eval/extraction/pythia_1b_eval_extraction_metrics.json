@@ -1,0 +1,15 @@
+{
+  "overall_exact_match_rate": 0.004,
+  "overall_mean_lcp_ratio": 0.193037038,
+  "n_candidates": 500,
+  "spearman_score_vs_lcp": 0.021911,
+  "spearman_p_value": 0.624994,
+  "extraction_exact@50": 0.0,
+  "extraction_lcp@50": 0.049965779999999994,
+  "extraction_exact@100": 0.0,
+  "extraction_lcp@100": 0.16421937,
+  "extraction_exact@200": 0.0,
+  "extraction_lcp@200": 0.19092892500000005,
+  "extraction_exact@500": 0.004,
+  "extraction_lcp@500": 0.193037038
+}

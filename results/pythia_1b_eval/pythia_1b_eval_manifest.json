@@ -1,0 +1,27 @@
+{
+  "run_id": "pythia_1b_eval",
+  "target_model": "EleutherAI/pythia-1.4b",
+  "ref_model": "EleutherAI/pythia-160m",
+  "n_candidates": 2963,
+  "n_valid": 2963,
+  "device": "cuda",
+  "finished_at": "2026-04-08T00:07:43.631573Z",
+  "ablation_results": {
+    "n_results": 19,
+    "path": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/pythia_1b_eval/pythia_1b_eval_ablation.parquet",
+    "groups_tested": [
+      "trivial",
+      "baseline",
+      "counts",
+      "full"
+    ]
+  },
+  "stats": {
+    "bpc_target_mean": 1.5767921660319648,
+    "bpc_target_std": 1.5084063918264932,
+    "delta_bpc_mean": 0.16343499822809893,
+    "delta_bpc_std": 0.1570555675708287,
+    "zlib_ratio_mean": 6.881823060121834,
+    "zlib_ratio_std": 4.7631831756050556
+  }
+}

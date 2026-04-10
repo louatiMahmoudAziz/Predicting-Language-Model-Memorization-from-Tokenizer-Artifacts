@@ -1,0 +1,54 @@
+{
+  "task": "classification",
+  "target_col": "label_top_0_1pct",
+  "model_name": "logistic",
+  "feature_subset": "token_count_only",
+  "n_train": 600,
+  "n_val": 200,
+  "n_test": 200,
+  "n_features_requested": 1,
+  "n_features_used": 1,
+  "features_used": [
+    "n_tokens_target"
+  ],
+  "features_dropped_all_nan": [],
+  "threshold_used": 0.5,
+  "threshold_selected_on": "val",
+  "val_metrics": {
+    "n_total": 200,
+    "n_positive": 0,
+    "n_negative": 200,
+    "auroc": NaN,
+    "auprc": NaN,
+    "precision_at_k": {
+      "precision_at_50": 0.0,
+      "precision_at_100": 0.0,
+      "precision_at_200": 0.0
+    },
+    "threshold_used": 0.5,
+    "tp": 0,
+    "fp": 91,
+    "fn": 0,
+    "precision": 0.0,
+    "recall": NaN
+  },
+  "test_metrics": {
+    "n_total": 200,
+    "n_positive": 0,
+    "n_negative": 200,
+    "auroc": NaN,
+    "auprc": NaN,
+    "precision_at_k": {
+      "precision_at_50": 0.0,
+      "precision_at_100": 0.0,
+      "precision_at_200": 0.0
+    },
+    "threshold_used": 0.5,
+    "tp": 0,
+    "fp": 98,
+    "fn": 0,
+    "precision": 0.0,
+    "recall": NaN
+  },
+  "trained_at": "2026-04-07T12:49:21.976881Z"
+}

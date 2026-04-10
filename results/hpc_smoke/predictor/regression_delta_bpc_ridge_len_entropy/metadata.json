@@ -1,0 +1,31 @@
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "len_entropy",
+  "n_train": 600,
+  "n_val": 200,
+  "n_test": 200,
+  "n_features_requested": 2,
+  "n_features_used": 2,
+  "features_used": [
+    "len_chars",
+    "char_entropy"
+  ],
+  "features_dropped_all_nan": [],
+  "threshold_used": 0.5,
+  "threshold_selected_on": "n/a",
+  "val_metrics": {
+    "mse": 0.6270766289799952,
+    "rmse": 0.7918817013796917,
+    "pearson_r": 0.2538933453165672,
+    "spearman_rho": -0.321282652547331
+  },
+  "test_metrics": {
+    "mse": 1.4356206674542056,
+    "rmse": 1.198173888654817,
+    "pearson_r": 0.4215991154620891,
+    "spearman_rho": -0.13498837470936775
+  },
+  "trained_at": "2026-04-07T12:34:48.896793Z"
+}

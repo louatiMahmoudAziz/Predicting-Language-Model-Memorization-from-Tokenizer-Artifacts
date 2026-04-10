@@ -1,0 +1,103 @@
+{
+  "task": "classification",
+  "target_col": "label_top_5pct",
+  "model_name": "logistic",
+  "feature_subset": "token_count_only",
+  "evaluated_at": "2026-04-07T12:34:49.797813Z",
+  "split": "test",
+  "n_nan_scores_dropped": 0,
+  "counts": {
+    "n_test": 200,
+    "n_positive": 13,
+    "n_negative": 187,
+    "prevalence": 0.065
+  },
+  "ranking": {
+    "score_column": "y_score",
+    "k_values": [
+      50,
+      100,
+      200
+    ],
+    "precision_at_k": {
+      "50": {
+        "value": 0.04,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.12,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.065,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "recall_at_k": {
+      "50": {
+        "value": 0.15384615,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.92307692,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 1.0,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    },
+    "ndcg_at_k": {
+      "50": {
+        "value": 0.07169932,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "100": {
+        "value": 0.37043971,
+        "resolvable": true,
+        "n_positive": 13
+      },
+      "200": {
+        "value": 0.3984247,
+        "resolvable": true,
+        "n_positive": 13
+      }
+    }
+  },
+  "tail": {
+    "tpr_at_fpr_1pct": {
+      "value": 0.0,
+      "resolvable": true,
+      "fpr_target": 0.01,
+      "fpr_achieved": 0.0,
+      "n_fp_at_threshold": 0,
+      "n_negative": 187,
+      "interpolated": false,
+      "low_fpr_resolution": false,
+      "min_achievable_fpr": 0.0053475936
+    },
+    "tpr_at_fpr_0_1pct": {
+      "value": null,
+      "resolvable": false,
+      "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+    }
+  },
+  "secondary": {
+    "auroc": {
+      "value": 0.65364048,
+      "resolvable": true
+    },
+    "auprc": {
+      "value": 0.09834141,
+      "resolvable": true
+    }
+  },
+  "regression_metrics": null
+}

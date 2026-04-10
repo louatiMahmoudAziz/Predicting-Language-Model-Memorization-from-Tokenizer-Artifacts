@@ -1,0 +1,1718 @@
+{
+  "run_id": "hpc_real_01",
+  "evaluated_at": "2026-04-07T12:49:22.208405Z",
+  "predictor_manifest": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_real_01/predictor/hpc_real_01_predictor_manifest.json",
+  "n_runs_evaluated": 16,
+  "n_runs_ok": 16,
+  "n_runs_failed": 0,
+  "n_runs_skipped": 0,
+  "config": {
+    "ranking_k": [
+      50,
+      100,
+      200
+    ],
+    "fpr_0_1_min_negatives": 100000,
+    "reg_binarize_quantile": 0.95,
+    "tpr_fpr_interpolation": "step_function_no_interpolation"
+  },
+  "output_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_real_01/eval",
+  "runs": [
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "token_count_only",
+      "evaluated_at": "2026-04-07T12:49:22.055003Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 10,
+        "n_negative": 190,
+        "prevalence": 0.05
+      },
+      "ranking": {
+        "score_column": "y_pred",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.06,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.1,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.05,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.3,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.11983564,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.36340632,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.36340632,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "binarization": {
+          "method": "top_5pct_of_test_y_true",
+          "quantile": 0.95,
+          "threshold_value": 4.796597264429842,
+          "n_positives": 10,
+          "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.0,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 190,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0052631579
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.66526316,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.07590718,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": {
+        "mse": 2.2559520819319125,
+        "rmse": 1.50198271692184,
+        "pearson_r": 0.2711886390062273,
+        "spearman_rho": 0.049249961520693705,
+        "resolvable": true
+      }
+    },
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "len_entropy",
+      "evaluated_at": "2026-04-07T12:49:22.069918Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 10,
+        "n_negative": 190,
+        "prevalence": 0.05
+      },
+      "ranking": {
+        "score_column": "y_pred",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.14,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.1,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.05,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.7,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.65340098,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.75688889,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.75688889,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "binarization": {
+          "method": "top_5pct_of_test_y_true",
+          "quantile": 0.95,
+          "threshold_value": 4.796597264429842,
+          "n_positives": 10,
+          "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.2,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 190,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0052631579
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.84894737,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.41709362,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": {
+        "mse": 2.0012136967222296,
+        "rmse": 1.414642603883479,
+        "pearson_r": 0.42408181607188583,
+        "spearman_rho": 0.2044506112652817,
+        "resolvable": true
+      }
+    },
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "token_count_delta_tok",
+      "evaluated_at": "2026-04-07T12:49:22.083007Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 10,
+        "n_negative": 190,
+        "prevalence": 0.05
+      },
+      "ranking": {
+        "score_column": "y_pred",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.06,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.1,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.05,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.3,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.11983564,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.36340632,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.36340632,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "binarization": {
+          "method": "top_5pct_of_test_y_true",
+          "quantile": 0.95,
+          "threshold_value": 4.796597264429842,
+          "n_positives": 10,
+          "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.0,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 190,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0052631579
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.66526316,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.07590718,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": {
+        "mse": 2.2559520819319125,
+        "rmse": 1.50198271692184,
+        "pearson_r": 0.2711886390062273,
+        "spearman_rho": 0.049249961520693705,
+        "resolvable": true
+      }
+    },
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "full",
+      "evaluated_at": "2026-04-07T12:49:22.095700Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 10,
+        "n_negative": 190,
+        "prevalence": 0.05
+      },
+      "ranking": {
+        "score_column": "y_pred",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.2,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.1,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.05,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.89587028,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "100": {
+            "value": 0.89587028,
+            "resolvable": true,
+            "n_positive": 10
+          },
+          "200": {
+            "value": 0.89587028,
+            "resolvable": true,
+            "n_positive": 10
+          }
+        },
+        "binarization": {
+          "method": "top_5pct_of_test_y_true",
+          "quantile": 0.95,
+          "threshold_value": 4.796597264429842,
+          "n_positives": 10,
+          "note": "Binary labels derived from test-set y_true quantile only. Different from build_labels.py thresholds."
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.5,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.005263157894736842,
+          "n_fp_at_threshold": 1,
+          "n_negative": 190,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0052631579
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=190_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.97684211,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.70384615,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": {
+        "mse": 0.7636768553772341,
+        "rmse": 0.8738860654440224,
+        "pearson_r": 0.8296545463021382,
+        "spearman_rho": 0.24966024150603766,
+        "resolvable": true
+      }
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_only",
+      "evaluated_at": "2026-04-07T12:49:22.107946Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "prevalence": 0.065
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.06,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.13,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.065,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.23076923,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.10166959,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.39781148,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.39781148,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.0,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 187,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0053475936
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.65939942,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.09829735,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "len_entropy",
+      "evaluated_at": "2026-04-07T12:49:22.116635Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "prevalence": 0.065
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.2,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.13,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.065,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.76923077,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.77547292,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.86990951,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.86990951,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.46153846,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0053475935828877,
+          "n_fp_at_threshold": 1,
+          "n_negative": 187,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0053475936
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.9197861,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.63051282,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_delta_tok",
+      "evaluated_at": "2026-04-07T12:49:22.124487Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "prevalence": 0.065
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.06,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.13,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.065,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.23076923,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.10166959,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.39781148,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.39781148,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.0,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 187,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0053475936
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.65939942,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.09829735,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "full",
+      "evaluated_at": "2026-04-07T12:49:22.132104Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "prevalence": 0.065
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.26,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.13,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.065,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.96070198,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "100": {
+            "value": 0.96070198,
+            "resolvable": true,
+            "n_positive": 13
+          },
+          "200": {
+            "value": 0.96070198,
+            "resolvable": true,
+            "n_positive": 13
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.69230769,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0053475935828877,
+          "n_fp_at_threshold": 1,
+          "n_negative": 187,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0053475936
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=187_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.98519128,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.85509442,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_only",
+      "evaluated_at": "2026-04-07T12:49:22.142298Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 4,
+        "n_negative": 196,
+        "prevalence": 0.02
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.04,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.02,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.24647382,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.24647382,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.0,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 196,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0051020408
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=196_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.61160714,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.02979213,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "len_entropy",
+      "evaluated_at": "2026-04-07T12:49:22.151822Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 4,
+        "n_negative": 196,
+        "prevalence": 0.02
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.06,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.04,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.02,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.75,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.70872127,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.76946885,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.76946885,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.5,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.00510204081632653,
+          "n_fp_at_threshold": 1,
+          "n_negative": 196,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0051020408
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=196_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.88903061,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.52218137,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_delta_tok",
+      "evaluated_at": "2026-04-07T12:49:22.161423Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 4,
+        "n_negative": 196,
+        "prevalence": 0.02
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.04,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.02,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.24647382,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.24647382,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.0,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.0,
+          "n_fp_at_threshold": 0,
+          "n_negative": 196,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0051020408
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=196_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.61160714,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.02979213,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "full",
+      "evaluated_at": "2026-04-07T12:49:22.172091Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 4,
+        "n_negative": 196,
+        "prevalence": 0.02
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.08,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.04,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.02,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 1.0,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": 0.82691513,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "100": {
+            "value": 0.82691513,
+            "resolvable": true,
+            "n_positive": 4
+          },
+          "200": {
+            "value": 0.82691513,
+            "resolvable": true,
+            "n_positive": 4
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": 0.5,
+          "resolvable": true,
+          "fpr_target": 0.01,
+          "fpr_achieved": 0.00510204081632653,
+          "n_fp_at_threshold": 1,
+          "n_negative": 196,
+          "interpolated": false,
+          "low_fpr_resolution": false,
+          "min_achievable_fpr": 0.0051020408
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "n_negative=196_lt_fpr_0_1_min_negatives=100000"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": 0.97704082,
+          "resolvable": true
+        },
+        "auprc": {
+          "value": 0.61929825,
+          "resolvable": true
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_only",
+      "evaluated_at": "2026-04-07T12:49:22.179583Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "prevalence": 0.0
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "100": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "200": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "auprc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "len_entropy",
+      "evaluated_at": "2026-04-07T12:49:22.184959Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "prevalence": 0.0
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "100": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "200": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "auprc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_delta_tok",
+      "evaluated_at": "2026-04-07T12:49:22.190444Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "prevalence": 0.0
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "100": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "200": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "auprc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "regression_metrics": null
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "full",
+      "evaluated_at": "2026-04-07T12:49:22.195645Z",
+      "split": "test",
+      "n_nan_scores_dropped": 0,
+      "counts": {
+        "n_test": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "prevalence": 0.0
+      },
+      "ranking": {
+        "score_column": "y_score",
+        "k_values": [
+          50,
+          100,
+          200
+        ],
+        "precision_at_k": {
+          "50": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "100": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          },
+          "200": {
+            "value": 0.0,
+            "resolvable": true,
+            "n_positive": 0,
+            "note": "no_positives_precision_is_0"
+          }
+        },
+        "recall_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        },
+        "ndcg_at_k": {
+          "50": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "100": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          },
+          "200": {
+            "value": null,
+            "resolvable": false,
+            "reason": "no_positives_in_test"
+          }
+        }
+      },
+      "tail": {
+        "tpr_at_fpr_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "tpr_at_fpr_0_1pct": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "secondary": {
+        "auroc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        },
+        "auprc": {
+          "value": null,
+          "resolvable": false,
+          "reason": "no_positives_in_test"
+        }
+      },
+      "regression_metrics": null
+    }
+  ]
+}

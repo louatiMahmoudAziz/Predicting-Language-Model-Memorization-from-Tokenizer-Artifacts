@@ -1,0 +1,30 @@
+{
+  "task": "regression",
+  "target_col": "delta_bpc",
+  "model_name": "ridge",
+  "feature_subset": "token_count_delta_tok",
+  "n_train": 600,
+  "n_val": 200,
+  "n_test": 200,
+  "n_features_requested": 1,
+  "n_features_used": 1,
+  "features_used": [
+    "n_tokens_target"
+  ],
+  "features_dropped_all_nan": [],
+  "threshold_used": 0.5,
+  "threshold_selected_on": "n/a",
+  "val_metrics": {
+    "mse": 0.6305730125345291,
+    "rmse": 0.7940862752462916,
+    "pearson_r": 0.1063706690002018,
+    "spearman_rho": -0.43063005138622823
+  },
+  "test_metrics": {
+    "mse": 1.633953075237569,
+    "rmse": 1.278261739722178,
+    "pearson_r": 0.25252563231704134,
+    "spearman_rho": -0.3246776192456675
+  },
+  "trained_at": "2026-04-07T12:34:48.922726Z"
+}

@@ -1,0 +1,18 @@
+{
+  "n_total": 200,
+  "n_positive": 0,
+  "n_negative": 200,
+  "auroc": NaN,
+  "auprc": NaN,
+  "precision_at_k": {
+    "precision_at_50": 0.0,
+    "precision_at_100": 0.0,
+    "precision_at_200": 0.0
+  },
+  "threshold_used": 0.5,
+  "tp": 0,
+  "fp": 44,
+  "fn": 0,
+  "precision": 0.0,
+  "recall": NaN
+}

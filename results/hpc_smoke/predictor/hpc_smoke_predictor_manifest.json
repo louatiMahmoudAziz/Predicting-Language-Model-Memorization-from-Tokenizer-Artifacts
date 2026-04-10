@@ -1,0 +1,870 @@
+{
+  "run_id": "hpc_smoke",
+  "built_at": "2026-04-07T12:34:49.733167Z",
+  "inputs": {
+    "features": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/features/hpc_smoke.parquet",
+    "labels": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_smoke_labels.parquet"
+  },
+  "config": {
+    "model_type": "logistic",
+    "split_train": 0.6,
+    "split_val": 0.2,
+    "seed": 42,
+    "max_iter": 500,
+    "n_estimators": 100,
+    "threshold": 0.5,
+    "ranking_k": [
+      50,
+      100,
+      200
+    ]
+  },
+  "row_counts": {
+    "total": 1000,
+    "valid": 1000,
+    "excluded_invalid": 0,
+    "train": 600,
+    "val": 200,
+    "test": 200
+  },
+  "classification_tasks": [
+    "label_top_5pct",
+    "label_top_1pct",
+    "label_top_0_1pct"
+  ],
+  "regression_task": "delta_bpc",
+  "runs": [
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "token_count_only",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "n/a",
+      "val_metrics": {
+        "mse": 0.6305730125345291,
+        "rmse": 0.7940862752462916,
+        "pearson_r": 0.1063706690002018,
+        "spearman_rho": -0.43063005138622823
+      },
+      "test_metrics": {
+        "mse": 1.633953075237569,
+        "rmse": 1.278261739722178,
+        "pearson_r": 0.25252563231704134,
+        "spearman_rho": -0.3246776192456675
+      },
+      "trained_at": "2026-04-07T12:34:48.872903Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/regression_delta_bpc_ridge_token_count_only"
+    },
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "len_entropy",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 2,
+      "n_features_used": 2,
+      "features_used": [
+        "len_chars",
+        "char_entropy"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "n/a",
+      "val_metrics": {
+        "mse": 0.6270766289799952,
+        "rmse": 0.7918817013796917,
+        "pearson_r": 0.2538933453165672,
+        "spearman_rho": -0.321282652547331
+      },
+      "test_metrics": {
+        "mse": 1.4356206674542056,
+        "rmse": 1.198173888654817,
+        "pearson_r": 0.4215991154620891,
+        "spearman_rho": -0.13498837470936775
+      },
+      "trained_at": "2026-04-07T12:34:48.896793Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/regression_delta_bpc_ridge_len_entropy"
+    },
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "token_count_delta_tok",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "n/a",
+      "val_metrics": {
+        "mse": 0.6305730125345291,
+        "rmse": 0.7940862752462916,
+        "pearson_r": 0.1063706690002018,
+        "spearman_rho": -0.43063005138622823
+      },
+      "test_metrics": {
+        "mse": 1.633953075237569,
+        "rmse": 1.278261739722178,
+        "pearson_r": 0.25252563231704134,
+        "spearman_rho": -0.3246776192456675
+      },
+      "trained_at": "2026-04-07T12:34:48.922726Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/regression_delta_bpc_ridge_token_count_delta_tok"
+    },
+    {
+      "task": "regression",
+      "target_col": "delta_bpc",
+      "model_name": "ridge",
+      "feature_subset": "full",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 11,
+      "n_features_used": 8,
+      "features_used": [
+        "len_chars",
+        "char_entropy",
+        "n_tokens_target",
+        "tok_rank_mean",
+        "tok_rank_min",
+        "tok_rank_max",
+        "merge_rank_mean",
+        "merge_rank_max"
+      ],
+      "features_dropped_all_nan": [
+        "piece_score_mean",
+        "piece_score_min",
+        "piece_score_max"
+      ],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "n/a",
+      "val_metrics": {
+        "mse": 0.4188269245283175,
+        "rmse": 0.6471683896238424,
+        "pearson_r": 0.6194480846434781,
+        "spearman_rho": -0.03673141828545714
+      },
+      "test_metrics": {
+        "mse": 0.6050938814265495,
+        "rmse": 0.7778778062308691,
+        "pearson_r": 0.8112234153609552,
+        "spearman_rho": 0.1744813620340509
+      },
+      "trained_at": "2026-04-07T12:34:48.946081Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/regression_delta_bpc_ridge_full"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_only",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.45000000000000007,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.6548223350253807,
+        "auprc": 0.027134675175912292,
+        "precision_at_k": {
+          "precision_at_50": 0.02,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.45000000000000007,
+        "tp": 3,
+        "fp": 96,
+        "fn": 0,
+        "precision": 0.030303030303030304,
+        "recall": 1.0
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "auroc": 0.6536404771698889,
+        "auprc": 0.09834141146626053,
+        "precision_at_k": {
+          "precision_at_50": 0.04,
+          "precision_at_100": 0.12,
+          "precision_at_200": 0.065
+        },
+        "threshold_used": 0.45000000000000007,
+        "tp": 13,
+        "fp": 89,
+        "fn": 0,
+        "precision": 0.12745098039215685,
+        "recall": 1.0
+      },
+      "trained_at": "2026-04-07T12:34:49.008062Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_5pct_logistic_token_count_only"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "len_entropy",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 2,
+      "n_features_used": 2,
+      "features_used": [
+        "len_chars",
+        "char_entropy"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.85,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.8358714043993232,
+        "auprc": 0.14459857082807903,
+        "precision_at_k": {
+          "precision_at_50": 0.04,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.85,
+        "tp": 1,
+        "fp": 3,
+        "fn": 2,
+        "precision": 0.25,
+        "recall": 0.3333333333333333
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "auroc": 0.8942821883998354,
+        "auprc": 0.539265522516114,
+        "precision_at_k": {
+          "precision_at_50": 0.2,
+          "precision_at_100": 0.13,
+          "precision_at_200": 0.065
+        },
+        "threshold_used": 0.85,
+        "tp": 3,
+        "fp": 1,
+        "fn": 10,
+        "precision": 0.75,
+        "recall": 0.23076923076923078
+      },
+      "trained_at": "2026-04-07T12:34:49.061411Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_5pct_logistic_len_entropy"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_delta_tok",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.45000000000000007,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.6548223350253807,
+        "auprc": 0.027134675175912292,
+        "precision_at_k": {
+          "precision_at_50": 0.02,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.45000000000000007,
+        "tp": 3,
+        "fp": 96,
+        "fn": 0,
+        "precision": 0.030303030303030304,
+        "recall": 1.0
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "auroc": 0.6536404771698889,
+        "auprc": 0.09834141146626053,
+        "precision_at_k": {
+          "precision_at_50": 0.04,
+          "precision_at_100": 0.12,
+          "precision_at_200": 0.065
+        },
+        "threshold_used": 0.45000000000000007,
+        "tp": 13,
+        "fp": 89,
+        "fn": 0,
+        "precision": 0.12745098039215685,
+        "recall": 1.0
+      },
+      "trained_at": "2026-04-07T12:34:49.120793Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_5pct_logistic_token_count_delta_tok"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_5pct",
+      "model_name": "logistic",
+      "feature_subset": "full",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 11,
+      "n_features_used": 8,
+      "features_used": [
+        "len_chars",
+        "char_entropy",
+        "n_tokens_target",
+        "tok_rank_mean",
+        "tok_rank_min",
+        "tok_rank_max",
+        "merge_rank_mean",
+        "merge_rank_max"
+      ],
+      "features_dropped_all_nan": [
+        "piece_score_mean",
+        "piece_score_min",
+        "piece_score_max"
+      ],
+      "threshold_used": 0.75,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.918781725888325,
+        "auprc": 0.5755555555555556,
+        "precision_at_k": {
+          "precision_at_50": 0.06,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.75,
+        "tp": 2,
+        "fp": 4,
+        "fn": 1,
+        "precision": 0.3333333333333333,
+        "recall": 0.6666666666666666
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 13,
+        "n_negative": 187,
+        "auroc": 0.9732620320855615,
+        "auprc": 0.676346660536944,
+        "precision_at_k": {
+          "precision_at_50": 0.26,
+          "precision_at_100": 0.13,
+          "precision_at_200": 0.065
+        },
+        "threshold_used": 0.75,
+        "tp": 11,
+        "fp": 12,
+        "fn": 2,
+        "precision": 0.4782608695652174,
+        "recall": 0.8461538461538461
+      },
+      "trained_at": "2026-04-07T12:34:49.223023Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_5pct_logistic_full"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_only",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 99,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.5846023688663282,
+        "auprc": 0.026984126984126985,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.5,
+        "tp": 3,
+        "fp": 99,
+        "fn": 0,
+        "precision": 0.029411764705882353,
+        "recall": 1.0
+      },
+      "trained_at": "2026-04-07T12:34:49.302619Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_1pct_logistic_token_count_only"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "len_entropy",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 2,
+      "n_features_used": 2,
+      "features_used": [
+        "len_chars",
+        "char_entropy"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 79,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.6802030456852792,
+        "auprc": 0.029632696071052234,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.5,
+        "tp": 3,
+        "fp": 85,
+        "fn": 0,
+        "precision": 0.03409090909090909,
+        "recall": 1.0
+      },
+      "trained_at": "2026-04-07T12:34:49.352973Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_1pct_logistic_len_entropy"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_delta_tok",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 99,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.5846023688663282,
+        "auprc": 0.026984126984126985,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.5,
+        "tp": 3,
+        "fp": 99,
+        "fn": 0,
+        "precision": 0.029411764705882353,
+        "recall": 1.0
+      },
+      "trained_at": "2026-04-07T12:34:49.466535Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_1pct_logistic_token_count_delta_tok"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_1pct",
+      "model_name": "logistic",
+      "feature_subset": "full",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 11,
+      "n_features_used": 8,
+      "features_used": [
+        "len_chars",
+        "char_entropy",
+        "n_tokens_target",
+        "tok_rank_mean",
+        "tok_rank_min",
+        "tok_rank_max",
+        "merge_rank_mean",
+        "merge_rank_max"
+      ],
+      "features_dropped_all_nan": [
+        "piece_score_mean",
+        "piece_score_min",
+        "piece_score_max"
+      ],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 7,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 3,
+        "n_negative": 197,
+        "auroc": 0.9543147208121827,
+        "auprc": 0.31777777777777777,
+        "precision_at_k": {
+          "precision_at_50": 0.06,
+          "precision_at_100": 0.03,
+          "precision_at_200": 0.015
+        },
+        "threshold_used": 0.5,
+        "tp": 2,
+        "fp": 18,
+        "fn": 1,
+        "precision": 0.1,
+        "recall": 0.6666666666666666
+      },
+      "trained_at": "2026-04-07T12:34:49.535639Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_1pct_logistic_full"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_only",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 102,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 104,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "trained_at": "2026-04-07T12:34:49.609660Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_0_1pct_logistic_token_count_only"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "len_entropy",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 2,
+      "n_features_used": 2,
+      "features_used": [
+        "len_chars",
+        "char_entropy"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 40,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 56,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "trained_at": "2026-04-07T12:34:49.680993Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_0_1pct_logistic_len_entropy"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "token_count_delta_tok",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 1,
+      "n_features_used": 1,
+      "features_used": [
+        "n_tokens_target"
+      ],
+      "features_dropped_all_nan": [],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 102,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 104,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "trained_at": "2026-04-07T12:34:49.708667Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_0_1pct_logistic_token_count_delta_tok"
+    },
+    {
+      "task": "classification",
+      "target_col": "label_top_0_1pct",
+      "model_name": "logistic",
+      "feature_subset": "full",
+      "n_train": 600,
+      "n_val": 200,
+      "n_test": 200,
+      "n_features_requested": 11,
+      "n_features_used": 8,
+      "features_used": [
+        "len_chars",
+        "char_entropy",
+        "n_tokens_target",
+        "tok_rank_mean",
+        "tok_rank_min",
+        "tok_rank_max",
+        "merge_rank_mean",
+        "merge_rank_max"
+      ],
+      "features_dropped_all_nan": [
+        "piece_score_mean",
+        "piece_score_min",
+        "piece_score_max"
+      ],
+      "threshold_used": 0.5,
+      "threshold_selected_on": "val",
+      "val_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "test_metrics": {
+        "n_total": 200,
+        "n_positive": 0,
+        "n_negative": 200,
+        "auroc": NaN,
+        "auprc": NaN,
+        "precision_at_k": {
+          "precision_at_50": 0.0,
+          "precision_at_100": 0.0,
+          "precision_at_200": 0.0
+        },
+        "threshold_used": 0.5,
+        "tp": 0,
+        "fp": 5,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": NaN
+      },
+      "trained_at": "2026-04-07T12:34:49.732267Z",
+      "run_dir": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_smoke/predictor/classification_top_0_1pct_logistic_full"
+    }
+  ]
+}

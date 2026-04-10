@@ -1,0 +1,90 @@
+{
+  "run_id": "hpc_real_01",
+  "config": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/configs/_tmp_hpc_real.yaml",
+  "started_at": "2026-04-07T12:46:44.516209Z",
+  "force": false,
+  "steps": [
+    {
+      "step": 1,
+      "name": "build_corpus",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/data/corpora/hpc_real_01/manifest.json",
+      "status": "done",
+      "elapsed_s": 1.8,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/data/corpora/hpc_real_01/manifest.json"
+    },
+    {
+      "step": 2,
+      "name": "train_tokenizer",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/tokenizers/real_bpe/metadata.json",
+      "status": "done",
+      "elapsed_s": 1.9,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/tokenizers/real_bpe/metadata.json"
+    },
+    {
+      "step": 3,
+      "name": "extract_features",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/features/hpc_real_01.parquet",
+      "status": "done",
+      "elapsed_s": 0.8,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/features/hpc_real_01.parquet"
+    },
+    {
+      "step": 4,
+      "name": "train_lm_ref",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_real_01/ref/training_manifest.json",
+      "status": "done",
+      "elapsed_s": 78.2,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_real_01/ref/training_manifest.json"
+    },
+    {
+      "step": 5,
+      "name": "train_lm_target",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_real_01/target/training_manifest.json",
+      "status": "done",
+      "elapsed_s": 73.3,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/models/hpc_real_01/target/training_manifest.json"
+    },
+    {
+      "step": 6,
+      "name": "score_bpc_ref",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_real_01_ref_bpc.parquet",
+      "status": "done",
+      "elapsed_s": 0.4,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_real_01_ref_bpc.parquet"
+    },
+    {
+      "step": 7,
+      "name": "score_bpc_target",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_real_01_target_bpc.parquet",
+      "status": "done",
+      "elapsed_s": 0.4,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_real_01_target_bpc.parquet"
+    },
+    {
+      "step": 8,
+      "name": "build_labels",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_real_01_labels.parquet",
+      "status": "done",
+      "elapsed_s": 0.1,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/labels/hpc_real_01_labels.parquet"
+    },
+    {
+      "step": 9,
+      "name": "train_predictor",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_real_01/predictor/hpc_real_01_predictor_manifest.json",
+      "status": "done",
+      "elapsed_s": 0.6,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_real_01/predictor/hpc_real_01_predictor_manifest.json"
+    },
+    {
+      "step": 10,
+      "name": "eval_metrics",
+      "artifact": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_real_01/eval/hpc_real_01_eval_manifest.json",
+      "status": "done",
+      "elapsed_s": 0.2,
+      "result": "/mnt/projects/mansours_project/Predicting-Language-Model-Memorization-from-Tokenizer-Artifacts/results/hpc_real_01/eval/hpc_real_01_eval_manifest.json"
+    }
+  ],
+  "finished_at": "2026-04-07T12:49:22.213122Z",
+  "success": true
+}
