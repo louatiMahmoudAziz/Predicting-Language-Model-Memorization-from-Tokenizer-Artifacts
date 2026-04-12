@@ -1,0 +1,31 @@
+{
+  "shap_importance": {
+    "merge_rank_mean": 1.1736887455142264,
+    "zlib_bpc": 0.8581749886045924,
+    "frac_single_char_tokens": 0.5245642166347835,
+    "compression_ratio": 0.45875180404813226,
+    "char_entropy": 0.41634290102065663,
+    "mean_token_len": 0.10019255667175019,
+    "len_chars": 0.07611013552830069,
+    "max_token_len": 0.059214124938260684,
+    "merge_rank_max": 0.0070039185066983435,
+    "merge_rank_min": 0.004593539321152405,
+    "n_tokens": 0.0,
+    "log_token_count": 0.0
+  },
+  "coef_importance": {
+    "zlib_bpc": 1.5547942362092197,
+    "merge_rank_mean": 1.4098164452759214,
+    "char_entropy": 0.6979454833712012,
+    "compression_ratio": 0.6810401735175634,
+    "frac_single_char_tokens": 0.6351114648696795,
+    "mean_token_len": 0.12686340227499288,
+    "max_token_len": 0.11336837982529813,
+    "len_chars": 0.09668031808102297,
+    "merge_rank_max": 0.03984122457067852,
+    "merge_rank_min": 0.033290759135255955,
+    "log_token_count": 1.365588161322198e-15,
+    "n_tokens": 0.0
+  },
+  "n_samples": 5000
+}

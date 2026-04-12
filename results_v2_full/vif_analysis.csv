@@ -1,0 +1,13 @@
+feature,VIF
+len_chars,180.1412474888222
+char_entropy,2.6315373938146327
+zlib_bpc,7.571195631452041
+n_tokens,inf
+compression_ratio,10.005569087672036
+log_token_count,inf
+merge_rank_mean,7.966656227421842
+merge_rank_min,1.2925307482247803
+merge_rank_max,1.0235436544160617
+max_token_len,1.7207509279506652
+mean_token_len,169.84653126212874
+frac_single_char_tokens,10.968143655802484
