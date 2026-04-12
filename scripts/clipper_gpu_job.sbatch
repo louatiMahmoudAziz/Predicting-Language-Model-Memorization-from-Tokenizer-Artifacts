@@ -27,15 +27,17 @@ echo "PROJECT_ROOT=${PROJECT_ROOT}"
 
 mkdir -p logs
 
-# --- Python: use module OR conda (uncomment what your site provides) ---
-# module purge
-# module load python/3.11
-# source ~/venvs/memorization/bin/activate
-
-if [ -f "${HOME}/venvs/memorization/bin/activate" ]; then
-  # shellcheck source=/dev/null
-  source "${HOME}/venvs/memorization/bin/activate"
+# --- Python venv (required: avoids mixing system Python with ~/.local and broken numpy/scipy) ---
+# Optional: module load python/3.11  # uncomment if cluster default python is too old
+VENV="${HOME}/venvs/memorization"
+if [ ! -x "${VENV}/bin/python" ]; then
+  echo "Creating venv at ${VENV}"
+  python3 -m venv "${VENV}"
 fi
+# shellcheck source=/dev/null
+source "${VENV}/bin/activate"
+# Do not let ~/.local packages shadow the venv (fixes ModuleNotFoundError: numpy._typing, etc.)
+export PYTHONNOUSERSITE=1
 
 export PYTHONUNBUFFERED=1
 # Hugging Face cache on scratch (recommended; data is large)
@@ -47,7 +49,8 @@ mkdir -p "${HF_HOME}" "${TRANSFORMERS_CACHE}" "${HF_DATASETS_CACHE}"
 # Optional: pin visible GPU (Slurm usually sets CUDA_VISIBLE_DEVICES)
 nvidia-smi || true
 
-pip install -q -r requirements_v2.txt
+python -m pip install --upgrade pip wheel
+python -m pip install -r requirements_v2.txt
 
 # --- Run (tune --n-samples and --target-models for your thesis) ---
 python tokenizer_memorization_experiment.py \
