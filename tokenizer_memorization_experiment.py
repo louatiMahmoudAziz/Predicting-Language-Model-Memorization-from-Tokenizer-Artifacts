@@ -101,6 +101,34 @@ def _zlib_bpc(s: str) -> float:
     return (len(compressed) * 8) / len(s)
 
 
+def _norm_id_rank_stats(token_ids: List[int], vocab_size: int) -> Tuple[float, float, float]:
+    """Fallback when BPE merge ranks are unavailable: ID / (V-1) in [0, 1]."""
+    denom = max(vocab_size - 1, 1)
+    pcts = [tid / denom for tid in token_ids]
+    return float(np.mean(pcts)), float(np.min(pcts)), float(np.max(pcts))
+
+
+def impute_nan_median_train_test(
+    X_train: np.ndarray, X_test: np.ndarray,
+) -> Tuple[np.ndarray, np.ndarray]:
+    """Impute NaNs with per-column training medians (0 if column all-NaN in train)."""
+    med = np.nanmedian(X_train, axis=0)
+    med = np.where(np.isfinite(med), med, 0.0)
+    Xtr = np.where(np.isnan(X_train), med, X_train)
+    Xte = np.where(np.isnan(X_test), med, X_test)
+    Xtr = np.nan_to_num(Xtr, nan=0.0, posinf=0.0, neginf=0.0)
+    Xte = np.nan_to_num(Xte, nan=0.0, posinf=0.0, neginf=0.0)
+    return Xtr.astype(np.float64), Xte.astype(np.float64)
+
+
+def impute_nan_median_columns(X: np.ndarray) -> np.ndarray:
+    """Column-wise median imputation for a single matrix (e.g. SHAP, scale curve)."""
+    med = np.nanmedian(X, axis=0)
+    med = np.where(np.isfinite(med), med, 0.0)
+    X2 = np.where(np.isnan(X), med, X)
+    return np.nan_to_num(X2, nan=0.0, posinf=0.0, neginf=0.0)
+
+
 def _build_merge_rank_map(tokenizer) -> Optional[Dict[int, int]]:
     """Build token_id → merge_rank from BPE merges file if available."""
     merges = getattr(tokenizer, "bpe_ranks", None)
@@ -202,9 +230,10 @@ def extract_features(
                 row["merge_rank_min"] = float(np.min(normed))
                 row["merge_rank_max"] = float(np.max(normed))
             else:
-                row["merge_rank_mean"] = float("nan")
-                row["merge_rank_min"] = float("nan")
-                row["merge_rank_max"] = float("nan")
+                rm, rmn, rmx = _norm_id_rank_stats(non_special_ids, vocab_size)
+                row["merge_rank_mean"] = rm
+                row["merge_rank_min"] = rmn
+                row["merge_rank_max"] = rmx
 
             pieces = tokenizer.convert_ids_to_tokens(non_special_ids)
             piece_lens = [len(p) for p in pieces]
@@ -302,9 +331,10 @@ def run_single_fold(
     use_gbm: bool = False,
 ) -> Dict:
     """Train + evaluate on one fold for one feature group."""
+    Xtr, Xte = impute_nan_median_train_test(X_train, X_test)
     scaler = StandardScaler()
-    Xtr = scaler.fit_transform(np.nan_to_num(X_train, nan=np.nanmedian(X_train, axis=0)))
-    Xte = scaler.transform(np.nan_to_num(X_test, nan=np.nanmedian(X_train, axis=0)))
+    Xtr = scaler.fit_transform(Xtr)
+    Xte = scaler.transform(Xte)
 
     result = {
         "group": group_name,
@@ -479,12 +509,18 @@ def extract_features_mismatched(
         row["compression_ratio"] = n_tokens / n_chars if n_chars > 0 else float("nan")
         row["log_token_count"] = math.log(n_tokens) if n_tokens > 0 else float("nan")
 
-        if n_tokens > 0 and merge_map:
-            ranks = [merge_map.get(tid, max_merge) for tid in token_ids]
-            normed = [r / max_merge for r in ranks]
-            row["merge_rank_mean"] = float(np.mean(normed))
-            row["merge_rank_min"] = float(np.min(normed))
-            row["merge_rank_max"] = float(np.max(normed))
+        if n_tokens > 0:
+            if merge_map:
+                ranks = [merge_map.get(tid, max_merge) for tid in token_ids]
+                normed = [r / max_merge for r in ranks]
+                row["merge_rank_mean"] = float(np.mean(normed))
+                row["merge_rank_min"] = float(np.min(normed))
+                row["merge_rank_max"] = float(np.max(normed))
+            else:
+                rm, rmn, rmx = _norm_id_rank_stats(token_ids, vocab_size)
+                row["merge_rank_mean"] = rm
+                row["merge_rank_min"] = rmn
+                row["merge_rank_max"] = rmx
         else:
             row["merge_rank_mean"] = float("nan")
             row["merge_rank_min"] = float("nan")
@@ -577,7 +613,7 @@ def run_shap_analysis(
     y = make_binary_label(memorization_scores, threshold_pct=threshold_pct)
 
     scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(np.nan_to_num(X, nan=0.0))
+    X_scaled = scaler.fit_transform(impute_nan_median_columns(X))
 
     clf = LogisticRegression(max_iter=2000, class_weight="balanced", random_state=seed)
     clf.fit(X_scaled, y)
@@ -607,7 +643,7 @@ def run_shap_analysis(
 
 def compute_vif(features_df: pd.DataFrame) -> pd.DataFrame:
     """Variance inflation factors for all features."""
-    X = features_df[ALL_FEATURE_COLS].dropna().values
+    X = impute_nan_median_columns(features_df[ALL_FEATURE_COLS].values)
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
 
@@ -873,7 +909,7 @@ def run_experiment(
             continue
         y_cls = make_binary_label(scores[valid], threshold_pct=5.0)
         X = features_df[valid].reset_index(drop=True)[ALL_FEATURE_COLS].values
-        X = StandardScaler().fit_transform(np.nan_to_num(X, nan=0.0))
+        X = StandardScaler().fit_transform(impute_nan_median_columns(X))
         clf = LogisticRegression(max_iter=2000, class_weight="balanced", random_state=seed)
         skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)
         yp = cross_val_predict(clf, X, y_cls, cv=skf, method="predict_proba")[:, 1]
