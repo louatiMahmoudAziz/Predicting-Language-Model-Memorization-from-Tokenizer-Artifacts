@@ -27,9 +27,9 @@ echo "PROJECT_ROOT=${PROJECT_ROOT}"
 
 mkdir -p logs
 
-# --- Python venv (required: avoids mixing system Python with ~/.local and broken numpy/scipy) ---
+# --- Python venv (override: export VENV=/path/to/venv before sbatch) ---
 # Optional: module load python/3.11  # uncomment if cluster default python is too old
-VENV="${HOME}/venvs/memorization"
+VENV="${VENV:-${HOME}/venvs/memorization}"
 if [ ! -x "${VENV}/bin/python" ]; then
   echo "Creating venv at ${VENV}"
   python3 -m venv "${VENV}"
@@ -52,14 +52,17 @@ nvidia-smi || true
 python -m pip install --upgrade pip wheel
 python -m pip install -r requirements_v2.txt
 
-# --- Run (tune --n-samples and --target-models for your thesis) ---
+# --- Run (set OUTPUT_DIR to reuse a folder and pick up cached *.parquet after a crash) ---
+# Example:  OUTPUT_DIR=results_v2_full sbatch scripts/clipper_gpu_job.sbatch
+# Extra CLI:  EXTRA_ARGS="--no-shap" sbatch scripts/clipper_gpu_job.sbatch
+OUTPUT_DIR="${OUTPUT_DIR:-results_v2_${SLURM_JOB_ID}}"
 python tokenizer_memorization_experiment.py \
   --n-samples 100000 \
   --target-models 1.4B \
   --thresholds 5.0 1.0 \
   --n-folds 5 \
   --n-repeats 3 \
-  --output-dir "results_v2_${SLURM_JOB_ID}" \
+  --output-dir "${OUTPUT_DIR}" \
   --cache-dir "${HF_DATASETS_CACHE}" \
   ${EXTRA_ARGS:-}
 
