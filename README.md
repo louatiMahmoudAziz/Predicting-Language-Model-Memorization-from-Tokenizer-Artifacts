@@ -1,23 +1,33 @@
 # Predicting Language-Model Memorization from Tokenizer Artifacts
 
-Can tokenizer-derived features alone predict whether a string is at risk of
-verbatim memorization by a language model — **without access to model weights,
-logprobs, or the training corpus at prediction time?**
+This is a research codebase for a simple question:
 
-This repository implements two complementary experimental tracks:
+> Can we rank string-level memorization risk using only tokenizer artifacts,
+> without querying the model at prediction time?
 
-1. **Controlled (canary injection):** Train matched ref/target LMs from scratch,
-   inject canaries at known repetition counts, predict memorization via ΔBPC.
+I evaluate this in two tracks:
 
-2. **Pretrained (Pythia family):** Evaluate on real pretrained models (70M → 6.9B)
-   where the evaluator does not control the training data. Uses cross-scale
-   ΔBPC, zlib baselines, and extraction validation.
+1. **Controlled canary injection** (train ref/target models from scratch)
+2. **Pretrained cross-scale evaluation** (Pythia family)
 
-## Key results
+The goal is not a production tool yet; this repo is an experimental framework
+for testing the hypothesis above.
 
-Run experiments and check `results/` for metrics. The ablation framework
-measures the **marginal contribution** of tokenizer-specific features over
-trivial baselines (string length, character entropy, zlib compression).
+## Current results snapshot
+
+From the latest audited runs:
+
+- **Pretrained (Pythia-1.4B vs 160M):**
+  - top-5 AUROC: `trivial=0.498`, `baseline=0.428`, `counts=0.609`, `full=0.873`, `full_gbm=0.948`
+  - regression (delta_bpc): `pearson=0.545`, `spearman=0.609`
+- **Pretrained (Pythia-6.9B vs 1.4B):**
+  - top-5 AUROC: `trivial=0.490`, `baseline=0.555`, `counts=0.652`, `full=0.855`, `full_gbm=0.884`
+  - regression (delta_bpc): `pearson=0.455`, `spearman=0.502`
+- **Controlled canary run (`hpc_real_01`):**
+  - top-5 AUROC: `token_count=0.659`, `len_entropy=0.920`, `full_logistic=0.985`, `full_ridge=0.977`
+
+Interpretation: in pretrained settings, trivial features are near random while
+tokenizer-structure features carry most of the useful signal.
 
 ## Project structure
 
@@ -111,8 +121,21 @@ The ablation framework trains predictors with increasingly rich feature sets:
 | `counts` | + n_tokens, compression_ratio | Tokenizer counting features |
 | `full` | + tok_rank_*, merge_rank_*, piece_score_* | Tokenizer artifact features |
 
-The marginal AUROC/AUPRC gain from `counts` → `full` measures the unique
-contribution of tokenizer artifacts beyond what trivial features provide.
+The marginal AUROC/AUPRC gain from `counts` -> `full` is the main signal for
+"tokenizer artifact value" beyond trivial string statistics.
+
+## Reproducibility notes
+
+- Most long runs were executed on HPC (not committed in full under `results/`).
+- Small audited summaries are stored under `artifacts/audit/`.
+- Some helper configs/scripts in this repo are exploratory and may not all be
+  used in the final paper tables.
+
+## Known limitations
+
+- Single tokenizer family in pretrained track (GPT-NeoX tokenizer).
+- Some tables are based on single split/seed; confidence intervals are pending.
+- Top-1% and especially top-0.1% labels are sparse and noisier than top-5%.
 
 ## Specification
 
